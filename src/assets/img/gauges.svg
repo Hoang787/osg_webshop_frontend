@@ -1,0 +1,61 @@
+<svg id="レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88.56" height="88.55" viewBox="0 0 88.56 88.55">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #e3e3e3;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        fill: #8e8e8e;
+      }
+
+      .cls-5 {
+        fill: #434343;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <circle class="cls-1" cx="44.28" cy="44.28" r="44.27"/>
+    </clipPath>
+  </defs>
+  <title>ico_top_product06</title>
+  <circle class="cls-2" cx="44.28" cy="44.28" r="44.27"/>
+  <circle class="cls-1" cx="44.28" cy="44.28" r="44.27"/>
+  <g class="cls-3">
+    <g>
+      <polygon class="cls-4" points="59.89 14.35 30.38 16.53 25.6 18.58 64.17 15.58 59.89 14.35"/>
+      <polygon class="cls-4" points="51.23 10.51 30.5 11.56 25.72 13.61 58.6 11.05 51.23 10.51"/>
+      <polygon class="cls-4" points="59.78 19.32 30.26 21.49 25.48 23.55 64.05 20.54 59.78 19.32"/>
+      <polygon class="cls-4" points="59.66 24.38 30.14 26.55 25.36 28.61 63.93 25.61 59.66 24.38"/>
+      <polygon class="cls-4" points="59.54 29.48 30.02 31.66 25.24 33.71 63.81 30.71 59.54 29.48"/>
+      <polygon class="cls-4" points="59.42 34.5 29.91 36.67 25.13 38.73 63.7 35.73 59.42 34.5"/>
+      <polygon class="cls-4" points="59.3 39.6 29.79 41.78 25.01 43.83 63.58 40.83 59.3 39.6"/>
+      <polygon class="cls-4" points="59.18 44.62 29.67 46.8 24.89 48.85 63.46 45.85 59.18 44.62"/>
+      <polygon class="cls-4" points="59.06 49.72 29.55 51.9 24.77 53.95 63.34 50.95 59.06 49.72"/>
+      <polygon class="cls-4" points="58.94 54.74 29.43 56.92 24.65 58.97 63.22 55.97 58.94 54.74"/>
+      <polygon class="cls-5" points="60.11 18.77 28.48 21.13 24.71 19.02 63.38 16.14 60.11 18.77"/>
+      <polygon class="cls-5" points="60.5 23.82 28.87 26.18 25.11 24.07 63.78 21.19 60.5 23.82"/>
+      <polygon class="cls-5" points="60.38 28.88 28.75 31.24 24.99 29.13 63.66 26.25 60.38 28.88"/>
+      <polygon class="cls-5" points="60.26 33.98 28.63 36.34 24.87 34.24 63.54 31.35 60.26 33.98"/>
+      <polygon class="cls-5" points="60.15 39 28.52 41.36 24.75 39.25 63.42 36.37 60.15 39"/>
+      <polygon class="cls-5" points="60.03 44.06 28.4 46.42 24.63 44.31 63.3 41.43 60.03 44.06"/>
+      <polygon class="cls-5" points="59.91 49.12 28.28 51.48 24.51 49.38 63.18 46.49 59.91 49.12"/>
+      <polygon class="cls-5" points="59.79 54.18 28.16 56.54 24.39 54.44 63.06 51.55 59.79 54.18"/>
+      <polygon class="cls-5" points="57.23 61.54 28.04 61.6 28.1 59.24 62.95 56.61 57.23 61.54"/>
+      <polygon class="cls-5" points="61.82 13.8 30.19 16.16 26.43 14.05 61.9 11.4 61.82 13.8"/>
+      <rect class="cls-5" x="40.54" y="64.35" width="7.49" height="30.47"/>
+      <rect class="cls-5" x="48.98" y="64.35" width="7.49" height="30.47"/>
+      <rect class="cls-5" x="32.09" y="64.35" width="7.49" height="30.47"/>
+      <rect class="cls-4" x="40.54" y="62.36" width="7.49" height="2.05"/>
+      <rect class="cls-4" x="48.98" y="62.36" width="7.49" height="2.05"/>
+      <rect class="cls-4" x="32.09" y="62.36" width="7.49" height="2.05"/>
+    </g>
+  </g>
+</svg>

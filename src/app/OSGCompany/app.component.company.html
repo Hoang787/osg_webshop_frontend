@@ -1,0 +1,299 @@
+
+
+<app-header></app-header>
+
+
+
+<div class="container">
+
+  <div>
+    <div class="historyTitle">
+      <h2>We are professional</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+
+  <div class="row OsgCompany">
+
+    <div class="col-lg-3 col-xs-2 menuOSG">
+
+      <nav class="sidebar" #sidebar>
+        <div class="text-center sidebar-header d-flex align-items-center">
+          <h5>About OSG</h5>
+        </div>
+
+        <ul class="nav">
+
+          <li class="nav-item">
+
+            <div class="row menu">
+              <div>
+                <a class="nav-link menu-title" href="history">Company Outline</a>
+              </div>
+              <div class="menu-icon">
+                <a (click)="openCompanyMenu()">
+                  <i [class]="companyMenu ? 'bi bi-arrow-down-short' : 'bi bi-arrow-right-short'"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="" #companyOutline  *ngIf="companyMenu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Vision</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Phylosophy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Leadership</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Business</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">OSG Brand</a>
+                </li>
+              </ul>
+            </div>
+
+          </li>
+
+          <li class="nav-item">
+
+            <div class="row menu">
+              <div>
+                <a class="nav-link menu-title" href="factory">OSG Europe</a>
+              </div>
+              <div class="menu-icon">
+                <a (click)="openFactoryMenu()">
+                  <i [class]="factoryMenu ? 'bi bi-arrow-down-short' : 'bi bi-arrow-right-short'"></i>
+                </a>
+              </div>
+            </div>
+
+
+            <div class="" #OSGEurope  *ngIf="factoryMenu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Belgium</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">French</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Germany</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Italy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Austria</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Irland</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Netherlands</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">French</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Poland</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Portugal</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Roumania</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Slovakia</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">South Africa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">Spain</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Sweden</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Switzerland</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Sweden</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">Switzerland</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/dropdowns.html">Turkey</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/typography.html">UK</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-title">Investors</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <span class="menu-title">Careers</span>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="col-lg-9 col-xs-7 valuesOSG">
+
+    <div class="row align-items-center">
+
+      <div class="col-lg-3 col-md-2 valuesOSG_wrapper">
+
+          <div class="text-center text-sm-left mb-2-9 valueOSG">
+            <div class="">
+              <div class="flip-box box-right">
+                <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                    <img src="assets/img/osg_vision.png" alt="Vision">
+                  </div>
+                  <div class="flip-box-back">
+                    <h5>Vision</h5>
+                    <p>What an amazing company</p>
+                    <a href="">Learn more</a>
+                  </div>
+                </div>
+              </div>
+              <h4 class="sub-info">Vision</h4>
+              </div>
+          </div>
+
+
+          <div class="text-center text-sm-left valueOSG">
+            <div class="">
+              <div class="flip-box box-right">
+                <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                    <img src="assets/img/osg_philosophy.png" alt="Philosophy">
+                  </div>
+                  <div class="flip-box-back">
+                    <h5>Philosophy</h5>
+                    <p>What an amazing company</p>
+                  </div>
+                </div>
+              </div>
+              <h4 class="sub-info">Philosophy</h4>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="col-lg-4 col-md-3 logoOSG">
+        <div class="center-image">
+          <img src="assets/img/logo-OSG.jpg" alt="..." class="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-2 valuesOSG_wrapper valueOSG">
+
+          <div class="text-center text-sm-left mb-2-9">
+            <div class="">
+              <div class="flip-box">
+                <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                    <img src="assets/img/osg_history.png" alt="History">
+                  </div>
+                  <div class="flip-box-back">
+                    <h5>History</h5>
+                    <p>What an amazing company</p>
+                  </div>
+                </div>
+              </div>
+              <h4 class="sub-info-right">History</h4>
+            </div>
+          </div>
+
+          <div class="text-center text-sm-left valueOSG">
+            <div class="">
+              <div class="flip-box">
+                <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                    <img src="assets/img/osg_profile.png" alt="Profile">
+                  </div>
+                  <div class="flip-box-back">
+                    <h5>Profile</h5>
+                    <p>What an amazing company</p>
+                  </div>
+                </div>
+              </div>
+              <h4 class="sub-info-right">Profile</h4>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="col-lg-10 col-md-6 valuesOSG_wrapper osg_leader_business">
+
+        <div class="text-center text-sm-left osg_leadership">
+          <div class="">
+          <div class="flip-box box-right">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <img src="assets/img/osg_officer.png" alt="Officer">
+              </div>
+              <div class="flip-box-back">
+                <h5>Leadership</h5>
+                <p>What an amazing company</p>
+              </div>
+            </div>
+          </div>
+          <h4 class="sub-info">Leadership</h4>
+          </div>
+        </div>
+
+        <div class="text-center text-sm-left osg_business">
+          <div class="">
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <img src="assets/img/osg_business.png" alt="Business">
+              </div>
+              <div class="flip-box-back">
+                <h5>Business</h5>
+                <p>What an amazing company</p>
+              </div>
+            </div>
+          </div>
+          <h4 class="sub-info-right">Business</h4>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+   </div>
+
+
+  </div>
+</div>
+
+<app-footer></app-footer>

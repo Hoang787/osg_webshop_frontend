@@ -1,0 +1,426 @@
+
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="currentURL">
+    <ol>
+      <li>
+        <a href=""> Top </a>
+      </li>
+      <li *ngFor="let path of this.currentUrlArray; let i = index">
+        <a (click)="navigateTo(path)"> {{ path }} </a>
+      </li>
+    </ol>
+  </div>
+
+<div class="containerTitle" *ngIf="product?.name">
+    <h4>{{product.name}}</h4>
+</div>
+
+
+<div class="row product_details">
+
+  <div class="col-lg-7 col-xs-5">
+
+    <div class="productImage" *ngIf="productImages.length > 0">
+      <p-galleria [value]="productImages" [numVisible]="5" [responsiveOptions]="responsiveOptions" [showItemNavigatorsOnHover]="true" [showThumbnailNavigators]="true"
+                  [containerStyle]="{ 'max-width': '800px' }" >
+
+        <ng-template #item let-item>
+
+          <p-image [src]="'assets/' + item.itemImageSrc" alt="" [preview]="true">
+            <ng-template #indicator>
+              <i class="pi pi-search"></i>
+            </ng-template>
+          </p-image>
+
+        </ng-template>
+
+        <ng-template #thumbnail let-item>
+          <img [src]="'assets/' + item.thumbnailImageSrc" alt="" />
+
+        </ng-template>
+
+      </p-galleria>
+
+    </div>
+    <hr>
+
+    <div class="progressbar flex justify-center" *ngIf="loading">
+      <p-progress-spinner strokeWidth="8" fill="transparent" animationDuration="1s" [style]="{ width: '50px', height: '50px' }" />
+    </div>
+
+  </div>
+
+  <div class="col-lg-5 col-xs-3">
+
+    <ul class="productIcons" *ngIf="prodApplicationMaterial.length > 0">
+      <li *ngFor="let applMat of prodApplicationMaterial">
+        <span>
+          <img src="assets/{{applMat}}" alt="" width="45" height="4"/>
+        </span>
+      </li>
+    </ul>
+
+    <table class="table table-borderless mb-0">
+      <tbody>
+      <tr>
+        <td>EDP:</td>
+        <td>{{product?.sku}}</td>
+      </tr>
+      <tr>
+        <td>Family:</td>
+        <td>{{product?.sub_family}}</td>
+      </tr>
+      <tr>
+        <td>Shipping:</td>
+        <td>
+          Delivered next business day
+          (order before 16:00)
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
+    <hr style="color: #0060aa; background-color: #0060aa; height: 1px;">
+    <div>
+      <div class="stockProduct">Stock: {{product?.stock}}</div>
+      <div class="input-group mt-4">
+        <div class="input-group-btn">
+          <button class="btn btn-sm btn-minus rounded-circle bg-light border" (click)="removeProduct()">
+            <i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <input class="form-control text-center" id="inputQuantity" type="num" value="1" style="max-width: 3rem" [(ngModel)]="quantity"/>
+        <div class="input-group-btn">
+          <button class="btn btn-sm btn-plus rounded-circle bg-light border" (click)="addProduct()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="shopCart mt-4 mb-2">
+      <button class="btn btn-outline-dark" type="button" (click)="showSuccess()">
+        <i class="bi-cart-fill"></i>
+        Add to Cart
+      </button>
+    </div>
+
+    <hr style="color: #0060aa; background-color: #0060aa; height: 1px;">
+
+    <div class="filesDownload mt-4">
+      <div class="filesFormat" *ngIf="sourceDXF">
+        <div> <img src="assets/img/dxf.png" alt=""  (click)="downloadFile(sourceDXF)"/></div>
+        <span> DXF </span>
+      </div>
+      <div class="filesFormat" *ngIf="sourceSTP">
+        <div> <img src="assets/img/stp.png" alt=""  (click)="downloadFile(sourceSTP)"/></div>
+        <span> STP </span>
+      </div>
+      <div class="filesFormat" *ngIf="sourcePDF">
+        <div class="cutting_conditions"> <img src="assets/img/pdf.png" alt="" (click)="viewFile(sourcePDF)"/></div>
+        <span> Cutting Conditions </span>
+      </div>
+    </div>
+
+    <div class="supplementOptions mt-2">
+      <p-toast />
+
+      <p-button class="p-button-opt" [rounded]="true" size="small" severity="secondary" (click)="showCompareProducts()" icon="pi pi-list" label="Compare Product"    />
+      <p-button class="p-button-opt" [rounded]="true" size="small" severity="secondary" (click)="showSuccess()" icon="pi pi-bookmark" label="Add to WishList"/>
+      <p-button class="p-button-opt" [rounded]="true" size="small" severity="secondary" (click)="popoverShare.toggle($event)" icon="pi pi-share-alt" label="Share"/>
+      <p-popover #popoverShare>
+
+
+        <div class="flex flex-col gap-4 w-[25rem]">
+          <div>
+            <span class="font-medium text-surface-900 dark:text-surface-0 block mb-2">Share this document</span>
+            <p-inputgroup>
+              <input pInputText value="https://primeng.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly
+                     class="w-[25rem]"/>
+              <p-inputgroup-addon>
+                <i class="pi pi-copy"></i>
+              </p-inputgroup-addon>
+            </p-inputgroup>
+          </div>
+          <div>
+
+          </div>
+
+        </div>
+      </p-popover>
+    <!--  <p-button class="p-button-opt" [rounded]="true" size="small" severity="info" (click)="popoverShare.toggle($event)" icon="pi pi-book" label="Catalog"/> -->
+
+    </div>
+
+
+
+    <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '25rem' }">
+
+      <div class="container">
+        <div class="card card-container">
+          <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          <form class="form-signin">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div id="remember" class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+          </form>
+          <a href="#" class="forgot-password">
+            Forgot the password?
+          </a>
+          <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
+
+        </div>
+      </div>
+
+    </p-dialog>
+
+  </div>
+</div>
+
+  <div #pdfViewer class="panelPDF" *ngIf='showing'>
+
+    <ngx-doc-viewer
+      [url]="sourceFile.path"
+      viewer="pdf"
+      style="width:100%;height:110vh;"
+
+    ></ngx-doc-viewer>
+
+  </div>
+
+      <p-fieldset legend="Features">
+        <div class="col-lg-12 col-xs-6" *ngIf="features?.length > 0">
+
+                  <div>
+                    <ul *ngFor="let feature of features">
+
+                      <li>
+                        <span>{{feature}}</span>
+                      </li>
+
+                    </ul>
+                  </div>
+        </div>
+
+        <div class="row col-lg-12 col-xs-7 specMaterials">
+
+          <div class="col-lg-7 col-xs-5 specifications" *ngIf="specifications?.length > 0">
+
+            <p-tabs value="0">
+              <p-tablist>
+                <p-tab value="0" class="specificationsTitle">Specifications</p-tab>
+              </p-tablist>
+
+              <p-tabpanels>
+                <p-tabpanel value="0">
+
+                  <div>
+                    <p-table stripedRows [value]="specifications">
+
+                      <ng-template #body let-prod>
+                        <tr *ngIf="prod.specValue && isNaN(prod.specValue) && prod.name != 'DIN'">
+                          <td>{{prod.name}}</td>
+                          <td>{{prod.specValue}}</td>
+                        </tr>
+                        <tr *ngIf="prod.specValue && !isNaN(prod.specValue) && prod.name != 'DIN'">
+                          <td>{{prod.name}}</td>
+                          <td>{{prod.specValue | number: '1.0-3'}}</td>
+                        </tr>
+                        <tr *ngIf="prod.specValue && prod.name === 'DIN'">
+                          <td>{{prod.name}}</td>
+                          <td>{{prod.specValue}}</td>
+                        </tr>
+                      </ng-template>
+
+                    </p-table>
+                  </div>
+
+                </p-tabpanel>
+
+              </p-tabpanels>
+            </p-tabs>
+
+          </div>
+
+          <div class="col-lg-5 col-xs-3 materials" *ngIf="prodMaterial.length > 0">
+
+            <p-tabs value="2">
+              <p-tablist>
+                <p-tab value="2" class="specificationsTitle">Material</p-tab>
+              </p-tablist>
+
+              <p-tabpanels>
+                <p-tabpanel value="2">
+
+                      <div class="productMaterials">
+
+                        <div class="productMat" *ngFor="let material of prodMaterial; let i = index">
+                          <div>
+                            <img src="assets/{{material.materialPath}}" alt="" width="45" height="4"/>
+                          </div>
+                          <span>{{material.cuttingSpeed}}</span>
+                          <div *ngIf="i == prodMaterial.length - 1 && category.toLowerCase() == 'Taps'.toLowerCase()" class="cuttingSpeed" >m/min</div>
+                        </div>
+
+                      </div>
+
+                </p-tabpanel>
+
+              </p-tabpanels>
+            </p-tabs>
+
+          </div>
+        </div>
+
+
+      </p-fieldset>
+
+
+
+
+  <div class="" *ngIf="tableSuggestions.length > 0">
+    <p-tabs value="3">
+    <p-tablist>
+      <p-tab value="3" class="specificationsTitle"><h5>Suggestion</h5></p-tab>
+    </p-tablist>
+
+    <p-tabpanels>
+      <p-tabpanel value="3">
+
+        <p-virtualscroller [items]="tableSuggestions" [itemSize]="100" scrollHeight="27rem" styleClass="border border-surface">
+
+          <ng-template #item let-prod let-options="options">
+
+            <div class="row">
+
+               <div class="col-lg-12 col-xs-6 productList">
+
+                <div class="row p-2 bg-white border rounded">
+
+              <div class="col-md-3 mt-1 align-items-center align-content-center product_Image">
+                <img src="assets/{{prod.images.product_images_file_path[0]}}"   alt=""/>
+              </div>
+
+              <div class="col-lg-6 mt-1 product_Spec">
+                <div class="mt-1 mb-1 spec-1 prod_name"><span>{{prod.name}}</span></div>
+                <div class="mt-1 mb-1 spec-1"><span>EDP: {{prod.sku}} </span></div>
+              </div>
+
+              <div class="align-items-center align-content-center col-md-3 mt-1 stock_options">
+
+                <div class="mt-4 button_options">
+                  <button class="btn btn-details btn-sm" type="button" (click)="productDetails(prod)">Details</button>
+                  <button class="btn btn-whishlist btn-sm" type="button">Add to wishlist</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+          </ng-template>
+
+        </p-virtualscroller>
+
+      </p-tabpanel>
+    </p-tabpanels>
+    </p-tabs>
+
+  </div>
+
+
+  <p-fieldset legend="Compare Products" *ngIf="productsToCompare.length > 0">
+  <div class="product_comparaison">
+
+    <table>
+        <tr>
+          <th></th>
+
+          <ng-container *ngFor="let productComp of productsCompare">
+            <td class="productInfo">
+
+              <img class="product-image" src="assets/{{ productComp.prod_images.product_images_file_path.length ? productComp.prod_images.product_images_file_path[0] : '' }}" alt="Workshop">
+            <div class="productNameEdp">
+                <div>{{productComp.name}}</div>
+                <div>EDP: {{productComp.sku}}</div>
+            </div>
+            </td>
+          </ng-container>
+        </tr>
+
+
+        <tr *ngFor="let criteria of criteriasToCompare">
+
+           <th class="criteria">{{criteria}}</th>
+
+           <ng-container *ngFor="let prod of productsToCompare">
+
+             <ng-container *ngFor="let spec of prod.specsToCompare">
+                <td class="specification" *ngIf="criteria === spec.name">
+                  <div class="specValue">  {{spec.value}} </div>
+                </td>
+             </ng-container>
+
+           </ng-container>
+
+         </tr>
+     </table>
+
+   </div>
+  </p-fieldset>
+
+
+    <div class="productVisitedSection" *ngIf="productsVisited && productsVisited.length > 0">
+      <div>
+      <h5>Products Visited:</h5>
+      </div>
+
+      <p-carousel [value]="productsVisited" [numVisible]="4" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions">
+        <ng-template let-product #item>
+
+          <div class="card-product m-2">
+
+            <div class="mb-4 card-img">
+              <div class="relative mx-auto">
+                <img (click)="checkProductVisited(product.sku)" class="card-product-image" src="assets/{{ product.images.product_images_file_path.length ? product.images.product_images_file_path[0] : '' }}" alt="Workshop">
+              </div>
+            </div>
+
+            <div class="font-medium">{{ product.name }}</div>
+            <div class="font-semibold text-xl">EDP: {{ product.sku }}</div>
+            <div class="flex mt-2">
+              <span>
+                <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" class="p-1" />
+                <p-button icon="pi pi-shopping-cart" styleClass="ml-2" class="p-1"/>
+              </span>
+            </div>
+
+          </div>
+
+
+        </ng-template>
+      </p-carousel>
+
+    </div>
+
+
+
+
+   <p-scrolltop [threshold]="100" icon="pi pi-arrow-up" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }"></p-scrolltop>
+ </div>
+
+
+
+ <app-footer></app-footer>
+

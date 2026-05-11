@@ -1,0 +1,38 @@
+
+
+<app-header></app-header>
+
+<div class="imgProducts">
+  <img src="assets/img/pro_index_main.png" alt=""/>
+</div>
+
+
+
+<div class="container">
+
+  <div class="row productsList">
+
+    <div class="productCategory" *ngFor="let categ of categories">
+
+      <div class="category" [ngClass]="{'taps_category': categ.category == 'Taps' , 'drills_category': categ.category == 'Drills',
+              'mills_category': categ.category == 'EndMills', 'reamers_category': categ.category == 'Reamers', 'indexables_category': categ.category == 'Indexables',
+              'gauges_category': categ.category == 'Gauges'}">
+        <a (click)="productCategory(categ)">
+        <div class="category-img">
+          <img src="{{categ.imageCategory}}" alt="">
+        </div>
+        <div class="category-body">
+          <h5>{{categ.category}}</h5>
+        </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<app-footer></app-footer>

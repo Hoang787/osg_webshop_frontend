@@ -1,0 +1,332 @@
+
+.page-title {
+  color: #010608;
+  background-color: #e5eaf0;
+  padding: 1.5rem 0;
+  margin-top: 1rem;
+}
+
+.page-title h1 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 1rem;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-right: 1rem;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 1rem;
+  color: color-mix(in srgb, #010608, transparent 70%);
+}
+
+
+.eventsFeature {
+  margin-top: 1rem;
+}
+
+
+.events .events-list {
+  margin-bottom: 2rem;
+}
+
+
+:host(::ng-deep) .p-datepicker-panel {
+  position: relative;
+}
+
+
+.events .events-list .event-item {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.events .events-list .event-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.events .events-list .event-item .event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.events .events-list .event-item .event-date .day {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.events .events-list .event-item .event-date .month {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.events .events-list .event-item .event-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.events .events-list .event-item .event-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.events .events-list .event-item .event-content .event-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, #2d465e, transparent 30%);
+}
+
+.events .events-list .event-item .event-content .event-meta i {
+  margin-right: 0.25rem;
+}
+
+.events .events-list .event-item .event-content .event-meta p {
+  margin: 0;
+}
+
+.events .events-list .event-item .event-content p {
+  margin-bottom: 1rem;
+  color: color-mix(in srgb, #212529, transparent 10%);
+}
+
+.events .events-list .event-item .event-content .btn-event {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color:  #08915e;
+}
+
+.events .events-list .event-item .event-content .btn-event i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.events .events-list .event-item .event-content .btn-event:hover {
+  color: color-mix(in srgb,  #08915e, transparent 25%);
+}
+
+.events .events-list .event-item .event-content .btn-event:hover i {
+  transform: translateX(5px);
+}
+
+@media (max-width: 600px) {
+
+  .events .events-list .event-item {
+    flex-direction: column;
+  }
+
+  .events .events-list .event-item .event-date {
+    width: 100%;
+    flex-direction: row;
+    padding: 0.75rem;
+  }
+
+  .events .events-list .event-item .event-date .day {
+    margin-right: 0.5rem;
+  }
+
+  .events .events-list .event-item .event-content .event-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.events .pagination-wrapper {
+  margin-top: 2rem;
+}
+
+
+.events .sidebar .sidebar-item {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+.events .sidebar .sidebar-item .sidebar-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.events .sidebar .sidebar-item .sidebar-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 60px;
+  background:  #08915e;
+}
+
+.events .sidebar .sidebar-item.featured-event .featured-event-content img {
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.events .sidebar .sidebar-item.featured-event .featured-event-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.events .sidebar .sidebar-item.featured-event .featured-event-content p {
+  margin-bottom: 0.75rem;
+  color: color-mix(in srgb,  #212529, transparent 10%);
+  font-size: 0.95rem;
+}
+
+.events .sidebar .sidebar-item.featured-event .featured-event-content p i {
+  color:  #08915e;
+  margin-right: 0.25rem;
+}
+
+.events .sidebar .sidebar-item.featured-event .featured-event-content .btn-register {
+  display: inline-block;
+  background:  #08915e;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.events .sidebar .sidebar-item.featured-event .featured-event-content .btn-register:hover {
+  background: color-mix(in srgb, #08915e, transparent 15%);
+}
+
+.events .sidebar .sidebar-item .categories ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.events .sidebar .sidebar-item .categories ul li {
+  /*border-bottom: 1px solid color-mix(in srgb, var(--heading-color), transparent 90%);*/
+}
+
+.events .sidebar .sidebar-item .categories ul li:last-child {
+  border-bottom: none;
+}
+
+.events .sidebar .sidebar-item .categories ul li a {
+  display: flex;
+  justify-content: space-between;
+  color: color-mix(in srgb, #212529, transparent 15%);
+  padding: 0.75rem 0;
+  transition: color 0.3s ease;
+}
+
+.events .sidebar .sidebar-item .categories ul li a:hover {
+  color: #08915e;;
+}
+
+.events .sidebar .sidebar-item .categories ul li a span {
+  color: color-mix(in srgb, #212529, transparent 40%);
+  /*background: color-mix(in srgb, var(--heading-color), transparent 90%);*/
+  border-radius: 50px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.events .sidebar .sidebar-item .categories ul li a:hover span {
+  background: color-mix(in srgb, #08915e, transparent 85%);
+  color: #08915e;
+}
+
+.events .sidebar .event-calendar .calendar-header {
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.events .sidebar .event-calendar .calendar-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.events .sidebar .event-calendar .calendar-body .weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.events .sidebar .event-calendar .calendar-body .weekdays div {
+  padding: 0.25rem;
+}
+
+.events .sidebar .event-calendar .calendar-body .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.events .sidebar .event-calendar .calendar-body .days .day {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px auto;
+  transition: all 0.2s ease;
+}
+
+.events .sidebar .event-calendar .calendar-body .days .day:hover:not(.other-month) {
+  background-color: color-mix(in srgb,#08915e, transparent 85%);
+  color: #08915e;
+}
+
+.events .sidebar .event-calendar .calendar-body .days .day.has-event {
+  background-color: #08915e;
+  /*color: var(--contrast-color);*/
+  position: relative;
+}
+
+.events .sidebar .event-calendar .calendar-body .days .day.has-event:hover {
+  background-color: color-mix(in srgb, #08915e, transparent 25%);
+}
+
+.events .sidebar .event-calendar .calendar-body .days .day.other-month {
+  color: color-mix(in srgb, #212529, transparent 60%);
+  cursor: default;
+}
+
+

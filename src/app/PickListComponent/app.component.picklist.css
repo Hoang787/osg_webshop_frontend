@@ -1,0 +1,20 @@
+
+
+:host ::ng-deep .p-picklist .p-listbox {
+  height: 24rem;
+}
+
+:host ::ng-deep .p-picklist  {
+  height: 24rem;
+}
+
+
+.information-selected {
+  margin-bottom: 1rem;
+}
+
+
+.compareProduct {
+  margin: 1rem;
+  float: right;
+}

@@ -1,0 +1,304 @@
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="currentURL">
+    <ol>
+      <li>
+        <a href=""> Top </a>
+      </li>
+      <li *ngFor="let path of this.currentUrlArray; let i = index">
+        <a (click)="navigateTo(path)"> {{ path }} </a>
+      </li>
+    </ol>
+  </div>
+
+  <div class="containerTitle" *ngIf="category">
+    <h4>{{category!.category}}</h4>
+  </div>
+
+
+
+  <div class="col-lg-12 col-xs-8 filter-wrapper" #filterContent>
+
+    <div class="justify-content-between align-items-center">
+      <button class="btn btn-link text-decoration-none p-1" (click)="toggleDrawer()" data-bs-toggle="collapse" data-bs-target="#filterContent">
+        <i class="bi bi-menu-up"></i> Filters
+      </button>
+    </div>
+
+    <div class="filterContent" *ngIf="visible">
+
+        <div class="filterContainer col-lg-12 col-md-8 col-xs-6">
+
+          <div class="filter" *ngFor="let fi of listFilters; index as i">
+
+
+            <p-multiSelect  #ms *ngIf="fi.name === 'Material'" id="{{fi.id}}" [name]="fi.name" [options]="fi.filterCategs" optionLabel="name" placeholder="Material" [(ngModel)]="fi.selected" (onChange)="filterProducts(fi)" fluid>
+              <ng-template let-mat #item>
+                <div>
+                  <span><img src="{{mat.icon}}" alt=""> {{mat.name}}</span>
+                </div>
+              </ng-template>
+            </p-multiSelect>
+
+
+
+
+            <p-multiSelect #ms *ngIf="fi.name === 'Type Tap'" id="{{fi.id}}" [name]="fi.name" [options]="fi.filterCategs" optionLabel="name" placeholder="{{fi.name}}" [(ngModel)]="fi.selected" [selectionLimit]="1" (onChange)="filterProducts(fi)" fluid>
+              <ng-template let-type #item>
+                <div>
+                  <span><img src="{{type.icon}}" alt=""> {{type.name}}</span>
+                </div>
+              </ng-template>
+            </p-multiSelect>
+
+
+
+            <p-multiSelect #ms *ngIf="fi.name === 'Hole Type Application'" id="{{fi.id}}" [name]="fi.name" [options]="fi.filterCategs" optionLabel="name" placeholder="{{fi.name}}" [(ngModel)]="fi.selected" [selectionLimit]="1" (onChange)="filterProducts(fi)" fluid>
+              <ng-template let-holeType #item>
+                <div>
+                  <span><img src="{{holeType.icon}}" alt=""> {{holeType.name}}</span>
+                </div>
+              </ng-template>
+            </p-multiSelect>
+
+
+            <div>
+            <p-multiSelect #ms *ngIf="fi.name !== 'Material' && fi.name !== 'Type Tap' && fi.name !== 'Hole Type Application' && fi.name !== 'Hole Depth'" id="{{fi.id}}" [name]="fi.name" [options]="fi.options" placeholder="{{fi.name}}" [(ngModel)]="fi.selected" [selectionLimit]="1" (onChange)="filterProducts(fi)" fluid />
+            </div>
+
+            <div *ngIf="fi.name === 'Hole Depth'">
+            <input  #inputHoleDepth pInputText  id="{{fi.id}}" [name]="fi.name" placeholder="Hole Depth" [(ngModel)]="holeDepth" (focus)="togglePopUp($event)" (change)="filterProducts($event)" />
+              @if (holeDepthFormat) {
+                <p-message severity="error" [life]="3000" variant="simple" size="small">Please Enter The Right Format</p-message>
+              }
+            </div>
+
+
+            <p-popover #pop>
+              <div class="flex flex-col gap-4">
+                <div>
+                  <div class="font-medium block mb-2">Please enter a value between 1.00 to 425!</div>
+                  <div class="font-medium block mb-2">To Calculate Hole Depth:</div>
+                  <ul class="list-none p-0 m-0 flex flex-col holdDepthInfo">
+                    <li class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border">
+                      <div>
+
+                        <div class="font-small text-sm text-surface-500 dark:text-surface-400">
+                          Hole Depth =  LU - input value by customer
+                        </div>
+
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </p-popover>
+
+          </div>
+
+
+        </div>
+
+
+
+      <div class="col-lg-12 col-md-8 col-xs-6">
+        <div class="filterInfo align-items-center">
+          <div class="card-filter" *ngFor="let filter of listFilters">
+            <div class="card-filter" *ngFor="let opt of filter.selected">
+              <p-chip *ngIf="filter.name === 'Material' || filter.name === 'Type Tap' || filter.name === 'Hole Type Application'"
+                label={{opt.name}}
+                [removable]="true"
+                (click)="removeFilter(filter, opt.name)"
+              />
+               <p-chip *ngIf="filter.name !== 'Material' && filter.name !== 'Type Tap' && filter.name !== 'Hole Type Application' "
+                  label={{opt}}
+                  [removable]="true"
+                  (click)="removeFilter(filter, opt)"
+               />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="productsTable">
+
+    <div class="progressbar flex justify-center" *ngIf="loading">
+      <p-progress-spinner strokeWidth="8" fill="transparent" animationDuration="1s" [style]="{ width: '50px', height: '50px' }" />
+    </div>
+
+    <div>
+
+      <p-dataview #dv [value]="tableProducts" [layout]="layout">
+        <ng-template #header>
+          <div class="row">
+
+           <!-- <div class="orderByCriterias">
+              <p-autocomplete [(ngModel)]="criteriaSelected" [dropdown]="true" [suggestions]="orderCriterias" (completeMethod)="search($event)" placeholder="Order By"><i class="pi pi-filter"></i></p-autocomplete>
+            </div> -->
+
+            <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
+              <ng-template #item let-item>
+                <i class="pi " [ngClass]="{ 'pi-bars': item === 'list', 'pi-table': item === 'grid' }"></i>
+              </ng-template>
+            </p-selectbutton>
+          </div>
+        </ng-template>
+
+
+        <ng-template #list let-items>
+          <div class="col-lg-12 col-xs-8 productList">
+
+            <div class="row p-2 bg-white border rounded productView" *ngFor="let prod of tableProducts">
+
+              <div class="col-md-2 mt-1 align-items-center align-content-center product_Image">
+                <img (mouseenter)="displayFeatures($event, prod)" (mouseleave)="hideFeatures()" src="assets/{{ prod.images && prod.images.product_images_file_path.length ? prod.images.product_images_file_path[0] : '' }}" alt=""/>
+              </div>
+
+              <div class="col-md-7 mt-1 product_Spec" (click)="productDetails(prod)">
+
+                  <div class="materials">
+                    <ul  *ngIf="prod.materials.material_name && prod.materials.material_name.length > 0">
+                      <li *ngFor="let mat of prod.materials.material_name">
+
+                        <img src="assets/img/{{mat}}.jpg" alt="" width="20" height="4"/>
+
+                      </li>
+                    </ul>
+                  </div>
+
+                <div class="col-md-6">
+                   <div class="mt-1 prod_name"><span>{{prod.name}}</span></div>
+                   <div class="mt-1"><span>EDP: {{prod.sku}} </span></div>
+                </div>
+
+                <div class="col-md-12 materialDetails">
+
+                <div class="productIcons">
+                  <ul *ngIf="prod.images.product_icons_file_path.length > 0">
+                    <li *ngFor="let applMat of prod.images.product_icons_file_path">
+
+                       <img src="assets/{{applMat}}" alt="" width="30" height="4"/>
+
+                    </li>
+                  </ul>
+                </div>
+
+                </div>
+              </div>
+
+              <div class="align-items-center align-content-center col-md-3 mt-1 stock_options">
+                <div class="stockProduct" *ngIf="prod.stock > 0">Stock: {{prod.stock}}</div>
+                <div class="stockProduct" *ngIf="prod.stock < 0 || prod.stock == 0">Stock: 0</div>
+
+                <div class="mt-2 button_options">
+                  <button class="btn btn-details btn-sm" type="button" (click)="productDetails(prod)">Details</button>
+                  <button class="btn btn-whishlist btn-sm" type="button">Add to wishlist</button>
+                </div>
+              </div>
+            </div>
+
+            <p-popover #features>
+
+              <div class="features" *ngIf="selectedProduct">
+                <ul>
+                  <li *ngFor="let feature of selectedProduct.features">
+
+                    <span>{{feature}}</span>
+
+                  </li>
+                </ul>
+              </div>
+
+            </p-popover>
+
+          </div>
+        </ng-template>
+
+
+        <ng-template #grid let-items>
+
+          <div class="row">
+
+          <div class="col-md-3 col-sm-2" *ngFor="let prod of items">
+            <div class="grid-prod">
+            <div class="prod-img">
+            <img (mouseenter)="displayFeatures($event, prod)" (mouseleave)="hideFeatures()" src="assets/{{ prod.images && prod.images.product_images_file_path.length ? prod.images.product_images_file_path[0] : '' }}" alt="" width="100%"/>
+            </div>
+            <div class="text-center">
+              <div class="mb-1 spec-1 prod_name"><span>{{prod.name}}</span></div>
+              <div class="mb-1 spec-1"><span>EDP: {{prod.sku}} </span></div>
+
+              <div class="materialsGrid">
+                <ul  *ngIf="prod.materials.material_name && prod.materials.material_name.length > 0">
+                  <li *ngFor="let mat of prod.materials.material_name">
+
+                    <img src="assets/img/{{mat}}.jpg" alt="" width="20" height="4"/>
+
+                  </li>
+                </ul>
+              </div>
+
+              <div class="productIconsGrid col-md-12">
+                <ul *ngIf="prod.images.product_icons_file_path.length > 0">
+                  <li *ngFor="let applMat of prod.images.product_icons_file_path">
+
+                    <img src="assets/{{applMat}}" alt="" width="30" height="4"/>
+
+                  </li>
+                </ul>
+              </div>
+
+              <div class="">
+                <div class="stockProduct" *ngIf="prod.stock > 0">Stock: {{prod.stock}}</div>
+                <div class="stockProduct" *ngIf="prod.stock < 0 || prod.stock == 0">Stock: 0</div>
+              </div>
+              <div class="d-flex justify-content-center button_optionsGrid">
+                  <button class="btn btn-details btn-sm" type="button" (click)="productDetails(prod)">Details</button>
+                  <button class="btn btn-whishlist btn-sm" type="button">Add to wishlist</button>
+              </div>
+
+            </div>
+            </div>
+          </div>
+
+            <p-popover #features>
+
+              <div class="features" *ngIf="selectedProduct">
+                <ul>
+                  <li *ngFor="let feature of selectedProduct.features">
+
+                    <span>{{feature}}</span>
+
+                  </li>
+                </ul>
+              </div>
+
+            </p-popover>
+
+          </div>
+        </ng-template>
+      </p-dataview>
+
+    </div>
+
+
+
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="totalRecords" />
+
+
+  </div>
+  <p-scrolltop [threshold]="100" icon="pi pi-arrow-up" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }"></p-scrolltop>
+</div>
+
+
+
+<app-footer></app-footer>

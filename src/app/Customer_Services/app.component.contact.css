@@ -1,0 +1,66 @@
+
+.contactInformation {
+  margin-bottom: 5rem;
+}
+
+.containerSubmit {
+  margin-top: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 40px;
+  margin-top: 2rem;
+}
+
+.info-item {
+  margin-top: 2rem;
+}
+
+.info-item img {
+  width: 2rem;
+  height: 2rem;
+
+}
+
+
+.info-item .item {
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+
+.email-form {
+  height: 100%;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contactInfo {
+  height: 100%;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.email-form input[type=text],
+.email-form input[type=email],
+.email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+
+.email-form button[type=submit] {
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+  background-color: #0baccc;
+}
+
+.labelName {
+  position: relative;
+}

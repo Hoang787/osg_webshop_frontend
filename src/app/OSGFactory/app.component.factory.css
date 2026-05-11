@@ -1,0 +1,190 @@
+
+.menuOSG {
+
+}
+
+.imgFactory {
+  width: 100%;
+}
+
+.companyOSG ul li {
+  padding-top: 1rem;
+  list-style-type: none;
+}
+
+
+.sidebar {
+  background: linear-gradient(to bottom, #e6e5f2, #4599cd);
+  font-family: "Rubik", sans-serif;
+  padding: 0;
+  max-height: min-content;
+}
+
+.sidebar-header {
+  padding: 3rem 0 0.25rem 3rem;
+}
+
+
+.sidebar .nav {
+  overflow: hidden;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+
+.sidebar .nav .nav-item {
+  padding: 0 2.25rem;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  transition-property: background;
+  -webkit-transition-property: background;
+}
+
+
+.nav .nav-item .nav-link {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 1rem 0 1rem 0;
+  color: rgba(0, 0, 0, 0.98);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+
+.nav .nav-item i {
+  color: inherit;
+}
+
+.nav .nav-item .menu {
+  justify-content: space-between;
+}
+
+.nav .nav-item .menu-icon {
+  font-size: 1.7rem;
+  line-height: 1rem;
+  color: #423a8e;
+  margin-top: 0.8rem;
+}
+
+.nav .nav-item .menu-icon:before {
+  vertical-align: middle;
+}
+
+
+.nav .nav-item .nav-link .menu-title {
+  color: rgba(0, 0, 0, 0.98);
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+
+.nav .nav-item .menu-icon:hover {
+  cursor: pointer;
+}
+
+.nav .nav-item .nav-link:hover {
+  text-decoration: none;
+}
+
+
+.nav .sub-menu {
+  margin-bottom: 1rem;
+  margin-top: 0;
+  list-style: none;
+}
+
+
+.nav .sub-menu .nav-item {
+  padding: 0 0 0 18px;
+}
+
+
+.nav .sub-menu .nav-item .nav-link {
+  color: rgba(0, 0, 0, 0.98);
+  padding: 0.75rem 2rem 0.75rem 2rem;
+  position: relative;
+  font-size: 0.8125rem;
+  line-height: 1;
+  height: auto;
+  border-top: 0;
+}
+
+
+.nav .sub-menu .nav-item .nav-link:before {
+  font-size: 0.75rem;
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #3e4b5b;
+  border-radius: 50%;
+  margin-left: -1.25rem;
+  top: 1.2rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #536479;
+}
+
+
+.OSGEurope {
+  margin-top: 1rem;
+}
+
+.nameFactory {
+  margin-top: 1rem;
+}
+
+.factoryOSG {
+  text-align: center;
+  background-color: #e5eaf0;
+  border-top:  1px solid initial;
+  border-bottom:  1px solid #e5eaf0;
+}
+
+.title_section {
+  font-size: 1.5rem;
+  font-family: "Arial Black", serif;
+  padding: 0.5rem;
+}
+
+
+.sidebar-widget {
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.sidebar-widget h5 {
+  font-size: 1.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.sidebar-widget .factoryInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .companyOSG {
+    margin-top: 1rem;
+  }
+
+}

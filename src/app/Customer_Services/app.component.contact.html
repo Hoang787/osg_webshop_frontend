@@ -1,0 +1,102 @@
+
+
+<app-header></app-header>
+
+
+<!-- Contact Section -->
+<section id="contact" class="contactSection">
+
+  <!-- Section Title -->
+  <div class="container section-title">
+    <h2>Contact</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div><!-- End Section Title -->
+
+
+<div class="container">
+
+  <div class="row gy-4 mb-5">
+
+    <div class="col-lg-4 contactInfo">
+
+        <div class="info-item d-flex">
+            <img src="assets/img/icons-geo.png" alt="Address"/>
+          <div class="item">
+            <h5>Address</h5>
+            <p> Avenue Lavoisier 1 <br>
+              B-1300 Wavre <br>
+              Belgium</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex">
+          <img src="assets/img/icons-phone.png" alt="Phone"/>
+          <div class="item">
+            <h5>Call Us</h5>
+            <div> Tel: +32 10 23 05 11 </div>
+            <div> Fax: +32 10 23 05 31 </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex">
+          <img src="assets/img/icons-email.png" alt="Email"/>
+          <div class="item">
+            <h5>Email Us</h5>
+            <p>info.com</p>
+          </div>
+        </div><!-- End Info Item -->
+
+
+    </div>
+
+    <div class="col-lg-8">
+      <form action="forms/contact.php" method="post" class="email-form">
+        <div class="row gy-4">
+
+          <div class="col-md-6">
+            <label for="company" class="pb-2 labelName">Company</label>
+            <input type="text" name="company" id="company" class="form-control" required="">
+          </div>
+
+          <div class="col-md-6">
+            <label for="name" class="pb-2 labelName">Name</label>
+            <input type="text" class="form-control" name="name" id="name" required="">
+          </div>
+
+          <div class="col-md-6">
+            <label for="email" class="pb-2 labelName">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required="">
+          </div>
+
+          <div class="col-md-6">
+            <label for="telephone" class="pb-2 labelName">Telephone</label>
+            <input type="text" class="form-control" name="telephone" id="telephone" required="">
+          </div>
+
+          <div class="col-md-12">
+            <label for="subject" class="pb-2 labelName">Subject</label>
+            <input type="text" class="form-control" name="subject" id="subject" required="">
+          </div>
+
+          <div class="col-md-12">
+            <label for="message" class="pb-2 labelName">Message</label>
+            <textarea class="form-control" name="message" rows="10" id="message" required=""></textarea>
+          </div>
+
+          <div class="col-md-12 text-center containerSubmit">
+            <button type="submit" class="btnSubmit">Send Message</button>
+          </div>
+
+        </div>
+      </form>
+    </div><!-- End Contact Form -->
+
+  </div>
+
+</div>
+
+</section><!-- /Contact Section -->
+
+
+<app-footer></app-footer>
+

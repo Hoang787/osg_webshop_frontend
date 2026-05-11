@@ -1,0 +1,378 @@
+
+
+
+<app-header></app-header>
+
+<!--
+<div class="slider_section">
+
+  <div class="carouselWrapper col-lg-8 col-xs-5">
+
+    <p-carousel [value]="carousel_items" [numVisible]="1" [numScroll]="1" [showNavigators]="false" autoplayInterval="3000" contentClass="">
+      <ng-template let-product #item>
+        <div class="carousel_inner">
+          <a href="/productGeneral"> <img src="/assets/img/{{ product.image }}" [alt]="product.name" class="w-full" /> </a>
+        </div>
+      </ng-template>
+    </p-carousel>
+
+  </div>
+
+
+  <div class="aboutOsg col-lg-4 col-xs-2">
+
+    <div class="">
+      <a href="/factory">
+        <img src="assets/img/osg.jpg" alt=""/>
+      </a>
+    </div>
+
+    <div class="">
+      <a href="newdetails">
+        <img src="assets/img/green2.jpg" alt=""/>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+-->
+
+<div class="videoProduct">
+  <video class="background-video" src="assets/videos/OSG-Brand-Products.mp4" [autoplay]="true" [muted]="true" [loop]="true" preload="auto" playsinline>
+
+  </video>
+</div>
+
+
+<section id="clients" class="clients section">
+
+    <div class="row gy-4">
+
+      <div class="col-xl-2 col-md-3 col-6 client-logo">
+        <img src="assets/img/client-1.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-xl-2 col-md-3 col-6 client-logo">
+        <img src="assets/img/client-2.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-xl-2 col-md-3 col-6 client-logo">
+        <img src="assets/img/client-3.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-xl-2 col-md-3 col-6 client-logo">
+        <img src="assets/img/client-4.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-xl-2 col-md-3 col-6 client-logo">
+        <img src="assets/img/client-5.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-xl-2 col-md-3 col-6 client-logo">
+        <img src="assets/img/client-6.png" class="img-fluid" alt="">
+      </div>
+
+    </div>
+
+</section>
+
+
+
+
+<div class="container">
+
+
+<!--Products-->
+<section id="products" class="products">
+
+  <div class="section-title">
+    <h3>Product Categories</h3>
+  </div>
+
+  <div class="productCategory mt-5">
+
+      <div class="product-card p-4 d-flex flex-column justify-content-between" *ngFor="let categ of categories"
+           [ngClass]="{'taps_category': categ.category == 'Taps' , 'drills_category': categ.category == 'Drills',
+              'mills_category': categ.category == 'EndMills', 'reamers_category': categ.category == 'Reamers', 'indexables_category': categ.category == 'Indexables',
+              'gauges_category': categ.category == 'Gauges'}" >
+        <a routerLink="/product/{{categ.category}}">
+        <div class="product-details">
+          <span class="icon">
+            <img src="{{categ.imageCategory}}"/>
+          </span>
+          <h3 class="fs-5">{{categ.category}}</h3>
+        </div>
+        </a>
+      </div>
+
+  </div>
+</section>
+<!--Fin Products-->
+
+
+
+  <section id="team" class="team mt-5">
+
+    <div class="">
+      <h3>HighLights</h3>
+    </div>
+
+      <div class="row mt-5">
+
+        <div class="col-lg-3 col-md-3">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="assets/img/catalog1.jpg" class="img-fluid" alt="">
+
+            </div>
+            <div class="member-info">
+              <h4>Threading & Drilling Tools</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="assets/img/catalog2.jpg" class="img-fluid" alt="">
+
+            </div>
+            <div class="member-info">
+              <h4>Milling Tools</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="assets/img/catalog1.jpg" class="img-fluid" alt="">
+
+            </div>
+            <div class="member-info">
+              <h4>Threading & Drilling Tools</h4>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3">
+          <div class="team-member">
+            <div class="member-img">
+              <img src="assets/img/catalog2.jpg" class="img-fluid" alt="">
+
+            </div>
+            <div class="member-info">
+              <h4>Milling Tools</h4>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+
+<!--News-->
+<div class="container">
+
+  <div class="mt-5">
+    <h3 class="">Bestsellers</h3>
+  </div>
+  <div>
+    <p-carousel [value]="products" [numVisible]="5" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+      <ng-template let-product #item>
+
+        <div class="latest-news-item">
+          <div class="rounded">
+            <div class="rounded-top overflow-hidden">
+              <img src="assets/img/tap170.jpg" [alt]="product.name"  class="img-zoomin img-fluid rounded-top w-100">
+            </div>
+            <div class="d-flex flex-column p-4 banner-info">
+              <a href="#" class="h6">{{ product.title }}</a>
+              <div class="d-flex justify-content-between">
+                <a href="#" class="small text-body link-hover">{{ product.description }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </p-carousel>
+  </div>
+
+
+
+
+  <div class="mt-5">
+    <h3 class="">New Products</h3>
+  </div>
+  <div>
+    <p-carousel [value]="products" [numVisible]="5" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+      <ng-template let-product #item>
+
+        <div class="latest-news-item">
+          <div class="rounded">
+            <div class="rounded-top overflow-hidden">
+              <img src="assets/img/tap170.jpg" [alt]="product.name"  class="img-zoomin img-fluid rounded-top w-100">
+            </div>
+            <div class="d-flex flex-column p-4 banner-info">
+              <a href="#" class="h6">{{ product.title }}</a>
+              <div class="d-flex justify-content-between">
+                <a href="#" class="small text-body link-hover">{{ product.description }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </p-carousel>
+  </div>
+
+
+
+  <section>
+    <div class="shaping-your-dreams mt-4">
+
+      <div class="">
+        <h3>OSG Shaping</h3>
+      </div><!-- End Section Title -->
+
+      <div class="row">
+
+        <div class="col-lg-5 col-xs-3">
+          <div class="hero-image-wrapper">
+            <img src="assets/img/ado_micro.jpg" alt="Student Life" class="img-fluid main-image">
+          </div>
+        </div>
+
+        <div class="col-lg-7 col-xs-5">
+          <div class="content-wrapper">
+
+            <h3>Vivamus consequat lorem at nisl laoreet commodo a ac lectus</h3>
+            <p class="lead-text">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+              egestas. Vestibulum tortor quam, feugiat vitae.</p>
+
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="bi bi-calendar-event"></i>
+                </div>
+                <div class="info-text">
+                  <strong>Year-Round Events</strong>
+                  <span>Duis aute irure dolor in reprehenderit voluptate</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="bi bi-award"></i>
+                </div>
+                <div class="info-text">
+                  <strong>Achievement Programs</strong>
+                  <span>Excepteur sint occaecat cupidatat non proident</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-brands">
+
+    <div class="">
+      <h3>Other Brands</h3>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-xs-6 brands">
+
+      <div class="brand">
+        <div class="brand-item">
+          <div class="brandImg">
+            <img src="assets/img/wexo.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="brandDetails">
+            <a href="" class="stretched-link">
+              <h3>Nesciunt Mete</h3>
+            </a>
+            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure
+              perferendis.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="brand">
+        <div class="brand-item">
+          <div class="brandImg">
+            <img src="assets/img/somta.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="brandDetails">
+            <a href="" class="stretched-link">
+              <h3>Eosle Commodi</h3>
+            </a>
+            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut
+              nesciunt dolorem.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+    </div>
+  </section>
+
+
+  <section class="latest-blogs">
+
+    <div class="">
+      <h3>Recent Blogs</h3>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-xs-6 blogs">
+
+      <div class="blog" *ngFor="let video of youtubeVideos">
+        <div class="blog-item">
+          <div class="blogVideo">
+            <ngx-lite-youtube [videoId]="mainVideo?.videoId"></ngx-lite-youtube>
+          </div>
+          <div class="blogDetails">
+            <a href="" class="stretched-link">
+              <h3> {{mainVideo?.title}} </h3>
+            </a>
+            <span>{{mainVideo?.description}}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<div #menuDown id="menuDown">
+  <ul class="floating">
+    <li>
+      <a href="/product"> <img src="assets/img/osg_japan.png" width="30px" alt=""/> Products </a>
+    </li>
+    <li>
+      <a href="/factory"> <img src="assets/img/world.png" width="30px" alt=""/> Global World </a>
+    </li>
+    <li>
+      <a href="/contact"> <img src="assets/img/telephone.png" width="30px" alt=""/> Contact Us </a>
+    </li>
+    <li>
+      <a (click)="scrollToTop()"> <img src="assets/img/arrow-up.png" width="30px" alt=""/> </a>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+<app-footer></app-footer>
+
+
+
+

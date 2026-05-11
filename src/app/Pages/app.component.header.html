@@ -1,0 +1,285 @@
+
+
+
+<header class="masthead">
+
+  <div class="container">
+
+      <div class="row">
+
+        <div class="mastHeadOSG col-lg-6 col-xs-6">
+
+          <div class="logoOSG col-lg-3 col-xs-2">
+            <img (click)="homePage()" src="./assets/img/logo-transp.png" alt="" class="imglogo"/>
+          </div>
+
+          <div class="search-container col-lg-9 col-xs-4">
+
+            <div class="search-main">
+            <p-autocomplete  [(ngModel)]="selectedProduct" [suggestions]="suggestionsProduct" (completeMethod)="searchProduct($event)" optionLabel="sku" placeholder="Search..." (click)="checkProductDetails(selectedProduct)" (onFocus)="displaySearch($event)" (mouseleave)="hideSearch()">
+
+              <ng-template let-product #item>
+
+                    <div class="col-lg-12 col-md-12 col-xs-6">
+                      <div class="productSearch">
+
+                          <div class="prodSearchImg col-lg-4 col-md-4">
+                            <img *ngIf="product.images.product_images_file_path[0]"  src="assets/{{product.images.product_images_file_path[0]}}" [class]="" style="width: 10rem"  alt=""/>
+                          </div>
+
+                            <div class="prodSearchNameSku col-lg-3 col-md-3">
+                              <div>
+                                <span class="font-medium text-secondary text-sm">{{ product.sku }}</span>
+                                <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">{{ product.name }}</div>
+                              </div>
+                            </div>
+
+                            <div class="flex flex-col prodSearchButton col-lg-5 col-md-5">
+                              <div class="flex flex-row-reverse">
+                                <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial whitespace-nowrap" label="25 Stock" />
+                              </div>
+                            </div>
+
+                      </div>
+                    </div>
+
+              </ng-template>
+            </p-autocomplete>
+
+            <p-popover #pop>
+              <div class="flex flex-col gap-4">
+                <div>
+                  <span class="font-medium block mb-2">Please Enter:</span>
+                  <ul class="list-none p-0 m-0 flex flex-col listSearchInfo">
+                    <li class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border">
+                      <div>
+
+                        <div class="font-small text-sm text-surface-500 dark:text-surface-400">
+                          <img src="assets/img/logo-OSG.jpg" style="width: 32px" />
+                          Product EDP, Name...
+                        </div>
+
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </p-popover>
+            </div>
+
+           <div id="search-mobile" class="search-mobile">
+          <p-autocomplete [(ngModel)]="selectedProduct" [suggestions]="suggestionsProduct" (completeMethod)="searchProduct($event)" optionLabel="sku" placeholder="Search..." (click)="checkProductDetails(selectedProduct)">
+
+              <ng-template let-product #item>
+
+                <div class="col-lg-12 col-md-12 col-xs-4">
+
+                    <div class="">
+                      <img *ngIf="product.images.product_images_file_path[0]"  src="assets/{{product.images.product_images_file_path[0]}}" [class]="" style="width: 10rem"  alt=""/>
+                      <div>{{ product.sku }}</div>
+                      <div>{{ product.name }}</div>
+                    </div>
+
+                </div>
+
+              </ng-template>
+            </p-autocomplete>
+
+           </div>
+
+          </div>
+        </div>
+
+
+        <div class="col-lg-6 col-xs-4">
+
+          <ul class="navMastHeadOSG">
+
+            <li>
+              <p-select [options]="countries" [(ngModel)]="selectedCountry"  (onChange)="onCountrySelected()"   optionLabel="name" [filter]="true" filterBy="name"  placeholder="Select Country" class="w-full md:w-56">
+
+                <ng-template #selectedItem let-selectedOption>
+                  <div class="flex items-center gap-2">
+                    <div> <span class="flag fi fi-{{selectedOption.code}}" style="width: 18px"></span> {{ selectedOption.name }} </div>
+                  </div>
+                </ng-template>
+                <ng-template let-country #item>
+                  <div class="flex items-center gap-2">
+                    <div> <span class="flag fi fi-{{country.code}}" style="width: 18px"></span> {{ country.name }} </div>
+                  </div>
+                </ng-template>
+
+              </p-select>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/map" > Contact <img src="assets/img/contact.png" alt=""/></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" (click)="webshop()"> WebShop <img src="assets/img/achats.png" alt=""/></a>
+            </li>
+
+          </ul>
+      </div>
+
+      </div>
+  </div>
+</header>
+
+<!-- MenuPrincipal-->
+
+
+
+
+
+
+
+
+
+    <!--Menu Principal -->
+<!--
+<nav #bodyNav>
+    <div class="dropdown" *ngFor="let option of menu">
+      <button [routerLink]="option.routerLink"  class="dropbtn">{{ option.label | translate }}</button>
+      <div class="dropdown-content">
+        <a [href]="opt.routerLink" *ngFor="let opt of option.items"> {{opt.label}}</a>
+      </div>
+    </div>
+
+</nav>
+-->
+
+
+
+<nav>
+
+  <span class="menuMobile">
+     <button (click)="menuMobile.toggle($event)"><img src="assets/img/menu.png" alt=""></button>
+    <span class="secondaryMenu">
+      <p-button icon="pi pi-language" styleClass="ml-2" (click)="menuLang.toggle($event)"/>
+      <p-menu #menuLang [model]="menuLanguages" [popup]="true" styleClass=".left-aligned-menu" />
+      <p-button icon="pi pi-shopping-cart" styleClass="ml-2"/>
+    </span>
+  </span>
+  <p-tieredMenu #menuMobile [model]="menuOptionsMobile" [popup]="true">
+  </p-tieredMenu>
+
+  <ul class="menu" id="bodyNav">
+    <li><p-button (click)="visibleDrawer = true" icon="pi pi-bars" /> </li>
+    <li *ngFor="let option of menuSecond; let i= index">
+      <a [href]="option.routerLink"> {{option.label}}</a>
+      <div class="mega-menu" *ngIf="option.column1 && option.column1.length > 0">
+        <div class="column">
+          <a *ngFor="let subopt of  option.column1"  [href]="subopt.routerLink">{{subopt.label}}</a>
+        </div>
+
+        <div class="column">
+          <a *ngFor="let subopt of  option.column2"  [href]="subopt.routerLink">{{subopt.label}}</a>
+        </div>
+
+        <div class="column">
+          <a *ngFor="let subopt of  option.column3"  [href]="subopt.routerLink">{{subopt.label}}</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+<p-drawer #drawerRef [(visible)]="visibleDrawer">
+  <ng-template #headless>
+    <div class="flex flex-col h-full">
+      <div class="row headerDrawer px-6 pt-4 shrink-0">
+        <img src="./assets/img/logo-transp.png" alt="" class="imglogo"/>
+        <p-button class="closeDrawer" type="button" (click)="closeCallback($event)" icon="pi pi-times" rounded="true" outlined="true" styleClass="h-6 w-6"></p-button>
+      </div>
+
+      <div class="overflow-y-auto">
+        <ul class="listMenu list-none m-0">
+
+          <li>
+            <div
+              pRipple
+              pStyleClass="@next"
+              enterFromClass="hidden"
+              enterActiveClass="animate-slidedown"
+              leaveToClass="hidden"
+              leaveActiveClass="animate-slideup"
+              class="flex items-center justify-between text-surface-600 dark:text-surface-200 cursor-pointer p-ripple"
+            >
+              <h5 class="font-medium">Menu Principal</h5>
+
+            </div>
+
+            <ul class="listSubMenu list-none p-0 m-0 overflow-hidden">
+              <li *ngFor="let option of menu">
+
+                <a pRipple  [href]="option.routerLink"  class="flex items-center cursor-pointer p-4 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
+                  <span class="font-medium">{{ option.label }} <span class="arrow-menu"> > </span> </span>
+                </a>
+
+                <div class="subMegaMenu">
+                    <div class="optMegaMenu">
+
+                      <a *ngFor="let opt of option.items" class="" [href]="opt.routerLink">
+                        <p>{{opt.label}}</p>
+                      </a>
+
+                    </div>
+                </div>
+
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+
+          <p-divider layout="horizontal" />
+           <div class="SecondMenu">
+               <div
+                 pRipple
+                 pStyleClass="@next"
+                 enterFromClass="hidden"
+                 enterActiveClass="animate-slidedown"
+                 leaveToClass="hidden"
+                 leaveActiveClass="animate-slideup"
+                 class="p-1 flex items-center justify-between text-surface-600 dark:text-surface-200 cursor-pointer p-ripple"
+               >
+              <h5 class="font-medium">New Catalogs</h5>
+
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+  </ng-template>
+</p-drawer>
+
+
+<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '25rem' }">
+
+  <div class="container">
+    <div class="card card-container">
+      <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+      <form class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div id="remember" class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+      </form>
+      <a href="#" class="forgot-password">
+        Forgot the password?
+      </a>
+      <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
+
+    </div>
+  </div>
+
+</p-dialog>

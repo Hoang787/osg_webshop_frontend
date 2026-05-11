@@ -1,0 +1,108 @@
+
+.section-catalog {
+  margin-top: 2rem;
+}
+
+.catalog_menu {
+  display: flex;
+  justify-content: center;
+  height: min-content;
+}
+
+
+.menu_header {
+  text-decoration: none;
+  cursor: pointer;
+  color: skyblue;
+}
+
+.menu_header:hover {
+  text-decoration: underline;
+}
+
+
+:host(::ng-deep) .p-menu-start {
+  background-color: #e5eaf0;
+}
+
+
+.catalogOSG {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.card-catalog {
+  display: inline-block;
+  vertical-align: top;
+}
+
+p-panel img {
+  width: 60%;
+}
+
+.panel-details img {
+  width: 12%;
+  cursor: pointer;
+}
+
+.panel-details .imgDownload {
+  width: 10%;
+}
+
+.panelPDF {
+  position: absolute;
+  width: 90vw;
+  background-color: grey;
+  padding-bottom: 2rem;
+}
+
+.panelVideo {
+  position: absolute;
+  margin-right: 10rem;
+  width: 90vw;
+}
+
+.card {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+
+.menuMobile {
+  display: none;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+  .catalogOSG {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+    margin-top: 1rem;
+  }
+
+  .panelVideo {
+    position: relative;
+    background-color: grey;
+    margin-right: 0;
+  }
+
+
+  .menuMobile {
+    display: block;
+  }
+
+  :host(::ng-deep) .p-panelmenu {
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+  }
+
+  .catalog_menu {
+    display: none;
+  }
+
+
+
+}

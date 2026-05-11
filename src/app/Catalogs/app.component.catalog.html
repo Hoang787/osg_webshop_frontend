@@ -1,0 +1,87 @@
+
+
+
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="row section-catalog">
+
+    <div class="menuMobile flex justify-center">
+      <p-panelmenu [model]="menuMobile" class="w-full md:w-80"></p-panelmenu>
+    </div>
+
+    <div class="col-lg-3 col-xs-2 catalog_menu">
+
+      <p-menu [model]="items" class="flex justify-center" styleClass="w-full md:w-60">
+
+          <ng-template #start>
+            <span class="inline-flex items-center gap-1 px-2 py-2 menu_title">
+             <span class="text-xl font-semibold text-center">
+                <h5 class="">Categories</h5>
+             </span>
+            </span>
+          </ng-template>
+
+          <ng-template #submenuheader let-item>
+            <a class="menu_header" [href]="item.routerLink">
+             <span class="font-bold">{{ item.label }}</span>
+            </a>
+          </ng-template>
+
+          <ng-template #item let-item>
+            <a pRipple class="flex items-center p-menu-item-link" [href]="item.routerLink">
+             <span class="ml-2">{{ item.label }}</span>
+            </a>
+          </ng-template>
+
+      </p-menu>
+
+    </div>
+
+
+    <div class="col-lg-9 col-xs-7 catalogOSG">
+
+      <div class="card-catalog justify-content-center" *ngFor="let item of catalogs">
+        <p-panel header="{{ item.title }}">
+          <img src="assets/img/{{ item.imgsrc }}" alt=""/>
+          <div class="panel-details">
+            <img src="assets/img/book-icon.svg" alt="" (click)="viewPdf(item)"/>
+            <img src="assets/img/video-icon.svg" alt="" (click)="openVideo(item)"/>
+            <img src="assets/img/download.svg" class="imgDownload" alt="" (click)="downloadPdf(item)"/>
+          </div>
+          <div class="panel-content">
+            {{ item.description }}
+          </div>
+        </p-panel>
+      </div>
+
+      <div class="card justify-center">
+        <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="totalRecords"/>
+      </div>
+    </div>
+
+
+    <div #pdfViewer class="panelPDF" *ngIf='showing'>
+
+      <ngx-doc-viewer
+        [url]="sourcePDF"
+        viewer="pdf"
+        style="width:100%;height:160vh;"
+      ></ngx-doc-viewer>
+    </div>
+
+    <div *ngIf="showVideo" #panelVideo class="panelVideo">
+      <video width="100%" height="100%" autoplay controls>
+        <source src="assets/videos/IDS-Messevideo-NEU.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+
+  <p-scrolltop [threshold]="100" icon="pi pi-arrow-up" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }"></p-scrolltop>
+</div>
+
+
+<app-footer></app-footer>

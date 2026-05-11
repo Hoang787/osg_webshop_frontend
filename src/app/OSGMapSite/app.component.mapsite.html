@@ -1,0 +1,133 @@
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="OSGEurope">
+    <h5 class="title_section">Welcome to OSG Europe</h5>
+  </div>
+
+<div class="row">
+
+  <div class="col-lg-3 col-xs-2 menuOSG">
+    <nav class="sidebar" #sidebar>
+      <div class="text-center sidebar-header d-flex align-items-center">
+        <h5>About OSG</h5>
+      </div>
+
+      <ul class="nav">
+
+        <li class="nav-item">
+
+          <div class="row menu">
+            <div>
+              <a class="nav-link menu-title" href="history">Company Outline</a>
+            </div>
+            <div class="menu-icon">
+              <a (click)="openCompanyMenu()">
+                <i [class]="companyMenu ? 'bi bi-arrow-down-short' : 'bi bi-arrow-right-short'"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="companyOutline" *ngIf="companyMenu">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/buttons.html">Vision</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/dropdowns.html">Phylosophy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/typography.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/buttons.html">Leadership</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/dropdowns.html">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/typography.html">Business</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/ui-features/typography.html">OSG Brand</a>
+              </li>
+            </ul>
+          </div>
+
+        </li>
+
+        <li class="nav-item">
+
+          <div class="row menu">
+            <div>
+              <a class="nav-link menu-title" href="factory">OSG Europe</a>
+            </div>
+            <div class="menu-icon">
+              <a (click)="openFactoryMenu()">
+                <i [class]="factoryMenu ? 'bi bi-arrow-down-short' : 'bi bi-arrow-right-short'"></i>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="country" #OSGEurope *ngIf="factoryMenu">
+
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item" *ngFor="let country of countries, let i = index">
+                <a class="nav-link">{{country.country}}</a>
+
+                <ul class="factory">
+                  <li (click)="zoomToPlace(fact)" *ngFor="let fact of country.factories"> {{fact.name}} </li>
+                </ul>
+
+              </li>
+            </ul>
+
+          </div>
+
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="pages/icons/mdi.html">
+            <span class="menu-title">Investors</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pages/forms/basic_elements.html">
+            <span class="menu-title">Careers</span>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact">
+            <span class="menu-title">Customer Services</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+
+<div class="col-lg-9 col-xs-7 mapOSG">
+  <div>
+    <p>With manufacturing and sales locations in 33 countries, we have created a global network that can meet the needs of customers in different regions.</p>
+  </div>
+   <div class="map" #map>
+   </div>
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<app-footer></app-footer>
+

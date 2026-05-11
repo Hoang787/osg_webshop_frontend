@@ -1,0 +1,33 @@
+
+<div class="information-selected">
+    <p-message #informationSelected severity="info" icon="pi pi-info-circle" size="small" text="Please Select 3 Products From The Product List" styleClass="h-full" />
+</div>
+<div class="card">
+  <p-picklist #listPickerProducts
+    [source]="sourceProducts"
+    [target]="targetProducts"
+    [dragdrop]="true"
+    [responsive]="true"
+              breakpoint="1400px" scrollHeight="20rem"
+  >
+    <ng-template let-option let-selected="selected" #item>
+      <div class="flex flex-wrap p-1 items-center gap-4 w-full">
+        <img class="w-12 shrink-0 rounded" src="assets/{{ option.images.product_images_file_path.length ? option.images.product_images_file_path[0] : '' }}" [alt]="option.name" style="max-width: 12rem"/>
+        <div class="flex-1 flex flex-col">
+          <span class="font-medium text-sm">{{ option.name }}</span>
+          <span
+            [ngClass]="{
+                         'text-surface-500': !selected,
+                         'dark:text-surface-400': !selected,
+                         'text-inherit': selected
+                       }"
+          >{{ option.category }}</span
+          >
+        </div>
+        <span class="font-bold sm:ml-8">{{ option.sku }}</span>
+      </div>
+    </ng-template>
+  </p-picklist>
+
+</div>
+<p-button #compareButton class="compareProduct" (onClick)="onClose()">Compare</p-button>

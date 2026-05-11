@@ -1,0 +1,87 @@
+
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-3 col-xs-2 catalog_menu">
+
+      <p-menu [model]="items" class="flex justify-center" styleClass="w-full md:w-60">
+
+        <ng-template #start>
+            <span class="inline-flex items-center gap-1 px-2 py-2 menu_title">
+             <span class="text-xl font-semibold text-center">
+                <h5 class="">Members</h5>
+             </span>
+            </span>
+        </ng-template>
+
+        <ng-template #submenuheader let-item>
+          <a class="menu_header" [href]="item.routerLink">
+            <span class="font-bold">{{ item.label }}</span>
+          </a>
+        </ng-template>
+
+        <ng-template #item let-item>
+          <a pRipple class="flex items-center p-menu-item-link" [href]="item.routerLink">
+            <span class="ml-2">{{ item.label }}</span>
+          </a>
+        </ng-template>
+
+      </p-menu>
+
+    </div>
+
+
+    <div class="col-lg-9 col-xs-7 member_content">
+
+      <div class="section-title">
+        <h2>NEXAM & Aircraft</h2>
+      </div>
+
+      <div class="gy-4">
+
+        <div class="member_img">
+          <img src="assets/img/nexam_member.gif" class="img-fluid" alt="">
+        </div>
+
+
+        <div class="col-lg-12 col-xs-7 member_description">
+
+          <h3>NEXAM & Aircraft</h3>
+          <p class="fst-italic">
+            Willkommen bei Nexam, Ihrem zuverlässigen Partner im Flugzeugbau!
+          </p>
+
+          <p>
+            In einer Branche, in der höchste Präzision und makellose Ergebnisse gefordert sind, sind präzise und
+            gratfreie Löcher unerlässlich. Bei der Montage kommt es auf jedes Detail an, und wir sind Ihre Experten,
+            wenn es um erstklassiges Bohren und Reiben geht.
+
+            Unsere Fachkompetenz erstreckt sich über eine breite Palette von Technologien – von manuellen Maschinen bis
+            hin zu automatischen Bohreinheiten. Egal, ob Sie auf pneumatische oder elektrische Technologien setzen, wir
+            bieten maßgeschneiderte Lösungen, die Ihren Anforderungen gerecht werden. Unsere langjährige Erfahrung
+            ermöglicht es uns, präzise Bohrungen und makellose Oberflächen zu gewährleisten, um die strengsten
+            Qualitätsstandards zu erfüllen.
+
+            Darüber hinaus verstehen wir, dass der Flugzeugbetrieb weit über die Montage hinausgeht. Daher unterstützen
+            wir Sie auch mit individuell angepassten Lösungen für alle Aspekte von Wartung, Reparatur und Überholung
+            (MRO).
+
+            Seit 2015 sind wir stolzes Mitglied der OSG Group, was uns in die Lage versetzt, unsere Expertise und
+            hochwertigen Lösungen weltweit anzubieten. Unser Team von Fachleuten steht bereit, Sie bei Ihren
+            Herausforderungen im Flugzeugbau zu unterstützen.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>

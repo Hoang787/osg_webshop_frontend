@@ -1,0 +1,26 @@
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FactoriesService {
+
+  apiUrl = "http://localhost:8080/osgwebshop/";
+
+  constructor(private http: HttpClient) {
+
+  }
+
+
+  getAllCountries(): Observable<any> {
+
+    const httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders.set("Content-Type", "application/json");
+
+    return this.http.get(this.apiUrl + "factories", { headers: httpHeaders});
+  }
+
+}

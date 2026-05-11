@@ -1,0 +1,222 @@
+
+.visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E4E7ED;
+}
+
+.img_aboutOSG {
+  margin: 0;
+  padding: 0;
+}
+
+
+.title_area h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  padding-bottom: 1rem;
+  position: relative;
+  color: #1764ef;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.img_communityOSG {
+  display: flex;
+  justify-content: center;
+}
+
+
+.brandOSG ul li {
+  text-align: left;
+}
+
+.brandOSG .experienceOSG {
+  background-color: #3a7aed;
+}
+
+.text_shappingOSG {
+  margin-top: 3rem;
+  padding-left: 8.5rem;
+}
+
+.experience-badge {
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  animation: experience-float 4s ease-in-out infinite;
+}
+
+@keyframes experience-float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+
+@keyframes experience-slideX {
+  0%   {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(150px);
+  }
+}
+
+.card-history1  {
+  width: 100%;
+}
+
+.historyOSG {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  margin-top: 1.5rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+}
+
+.card-subtitle {
+  margin-top: -0.375rem;
+  margin-bottom: 0;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: #f8f9fc;
+  border-top: 1px solid #e3e6f0;
+}
+
+.card-body .chart-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body .chart-commerce img {
+  width: 100%;
+}
+
+.floating {
+  display: block;
+  list-style: none;
+  z-index: 1;
+  position: fixed;
+  bottom: 5rem;
+  right: -7.5rem;
+}
+
+.floating li {
+  width: 150px;
+  height: 45px;
+  line-height: 45px;
+  display: block;
+  background-color: #fff;
+  border: #00559d solid 1px;
+  border-right: none;
+  color: #00559d;
+  font-size: 1rem;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.floating li:first-child {
+  position: relative;
+  bottom: 10rem;
+  right: 4rem;
+}
+
+
+.floating li:not(:last-child,:first-child):hover {
+  position: relative;
+  right: 6.5rem;
+  a {
+    text-decoration: none;
+  }
+}
+
+#menuDown {
+  display: none;
+}
+
+.card-body p {
+  font-family: "Arial", serif;
+  font-style: normal;
+  font-size: 1rem;
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .card-body  .chart-area img {
+    width: 100%;
+  }
+
+  .text_shappingOSG {
+    padding: 1rem;
+  }
+
+  .img_shappingOSG img {
+    width: 100%;
+  }
+
+  .visual img {
+    width: 100%;
+  }
+
+
+ .img_communityOSG img {
+   width: 100%;
+ }
+
+}
+
+.card-commerce {
+  margin-bottom: 2rem;
+}

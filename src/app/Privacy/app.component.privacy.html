@@ -1,0 +1,356 @@
+
+
+<app-header xmlns="http://www.w3.org/1999/html"></app-header>
+
+
+  <div class="container py-5">
+    <div class="row">
+      <!-- Table of Contents -->
+      <div class="col-lg-3">
+        <div class="privacy_menu sticky-top">
+            <div class="privacy_title">
+            <h4 class="mb-3">Contents</h4>
+            </div>
+            <nav class="nav flex-column">
+              <a class="toc-link py-2" (click)="scrollToView('overview')">Overview</a>
+              <a class="toc-link py-2" (click)="scrollToView('processing')">Processing Data</a>
+              <a class="toc-link py-2" (click)="scrollToView('collecting')">Collecting Data</a>
+              <a class="toc-link py-2" (click)="scrollToView('data')">Data</a>
+              <a class="toc-link py-2" (click)="scrollToView('purposes')">Purposes</a>
+              <a class="toc-link py-2" (click)="scrollToView('sharing')">Sharing Data</a>
+              <a class="toc-link py-2" (click)="scrollToView('security')">Security</a>
+              <a class="toc-link py-2" (click)="scrollToView('cookies')">Policy Cookies</a>
+              <a class="toc-link py-2" (click)="scrollToView('rights')">Rights</a>
+            </nav>
+        </div>
+
+       <!--Mobile Menu-->
+        <div class="meu_mobile">
+        <p-panelmenu [model]="items" class="w-full md:w-100">
+          <ng-template #item let-item>
+            <a pRipple class="flex items-center px-4 py-2 cursor-pointer group">
+              <i [class]="item.icon + ' text-primary group-hover:text-inherit'"></i>
+              <span class="ml-2">
+                {{ item.label }}
+              </span>
+              <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded
+            bg-emphasis text-muted-color text-xs p-1">
+                {{ item.shortcut }}
+              </span>
+            </a>
+          </ng-template>
+        </p-panelmenu>
+        </div>
+
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-9">
+
+          <div class="privacy_policy">
+
+            <div id="overview" class="privacy_title">
+            <h1 class="mb-4">Privacy Policy</h1>
+            </div>
+
+            <p class="text-muted">Last updated: December 25, 2024</p>
+
+            <div  class="policy-section py-4">
+              <p>We consider the protection and proper management of the personal information of all related parties (hereinafter referred to as "customers, etc."), including our customers, business partners (including alliance partners and subcontractors),
+                 group officers and employees, recruiters, shareholders, and investors (hereinafter referred to as "our group"), to be an important social responsibility,
+                and we have established the following privacy policy and handled personal information properly. The meaning of the terms used in this Policy shall be governed by the Law on the Protection of Personal Information.</p>
+            </div>
+
+            <div id="processing" class="policy-section py-4">
+              <h2>Processing of personal data</h2>
+              <p>The entity that is responsible for the processing of your personal data is:</p>
+              <p>OSG Europe Logistics sa Avenue Lavoisier 1 1300 Wavre Nord Belgium</p>
+              <p>BE0402895042</p>
+
+              <p>
+                By "personal data", we understand any information that can identify you, both directly and indirectly. By "processing",
+                we refer to anything we do with such personal data, including collection, recording, organisation, structuring, storage, adaptation or
+                alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.
+              </p>
+            </div>
+
+            <div id="collecting"  class="policy-section py-4">
+              <h2>How personal data are collected</h2>
+              <p>Primarily, we collect personal data that you provide to us, e.g. when you leave us a message via our website’s contact page, when you send us your C.V., when you enter into an agreement with us, or when you agree into a employment contract.</p>
+              <p> Furthermore, we might be provided with your personal data via other sources, e.g. if you act as contact person for a legal entity, through the use of cookies when you visit our website, through surveillance video recordings (CCTV) when you visit our premises, or when you attend events as exhibitions.</p>
+            </div>
+
+            <div id="data" class="policy-section py-4">
+              <h2>Which personal data are processed</h2>
+              <p>We restrict the processing of personal data to avoid excessive processing of personal data. At OSG Europe Logistics sa we will therefore process your personal data in a way that is adequate, relevant and limited to what is necessary in accordance with the law.</p>
+              <p> Typically, the types of personal data we process are:</p>
+                <ul>
+                  <li> Identification data: Name, surname, address, registration number, phone number, e-mail address</li>
+                  <li>Information about your purchases of our trusted partners’ products and services</li>
+                  <li> Information about your use of our website and/or App </li>
+                  <li> The communications you exchange with us via letters, e-mails, and phone calls </li>
+                </ul>
+
+                <p> We do not process sensitive personal data such as data relating to health, religion, political or philosophical beliefs, sexual orientation or ethnicity, except when we would have a legitimate interest or legal obligation like for health and safety purposes, to adapt the workplace to specific health-related circumstances, for the prevention and investigation of fraud or other criminal activity, or when required by law enforcement.</p>
+            </div>
+
+            <div id="purposes" class="policy-section py-4">
+              <h2>Purposes of processing personal data</h2>
+              <p>We process personal data only for specific and well-defined purposes and will not process your personal data for purposes which go beyond what you could reasonably expect us to do with it.</p>
+              <p>In particular, we may process your personal data for the following purposes for which we have a legal basis as indicate below:</p>
+
+               <ul>
+                <li>Performance of a contract: Processing of your personal data might be required in order to take the necessary steps at your request prior to entering into a contract, or in order to execute it when a contract is already in place.</li>
+
+                 <li>Incident management: We may process your personal data if you are affected by an incident, e.g. at the work floor.</li>
+
+                 <li>Legitimate interest: Your personal data might be processed when required for our legitimate interests to prevent fraud and protect vital interests.</li>
+
+                 <li>Legal obligation: We may have to process your personal data for compliance with a legal obligtion to which we may be subject to.</li>
+
+                 <li>To establish statistics and reporting.</li>
+
+                 <li>To improve the security of our network and our information systems.</li>
+
+                 <li>To better understand the interaction of users with our websites.</li>
+
+                 <li>To determine the effectiveness of promotional campaigns and advertising.</li>
+
+                 <li>For any other specific purpose you have given your consent to.</li>
+               </ul>
+            </div>
+
+            <div id="sharing" class="policy-section py-4">
+              <h2>Sharing your personal data</h2>
+              <p>Where required for the purpose for which your personal data were collected (cf. section 5 above), we may transfer personal data to other entities within the OSG Group.</p>
+
+              <p>OSG Europe Logistics sa has taken appropriate safeguards and measures to ensure that if personal data are exchanged or shared within the OSG Group, they are duly protected in line with applicable legislation.</p>
+
+              <p>Your personal data might be transferred to third parties, trusted service providers we are using to run our business such as transporters, e-mail marketing service providers assisting our marketing team.</p>
+              <p>We ensure that third parties only have access to personal data when they need them to carry out the specific tasks necessary and commit to process the data in a secure and confidential manner as well as use them in line with our instructions.</p>
+
+              <p>Please note that we do not sell your personal data to any third party for commercial purposes.</p>
+
+              <p>Where personal data are transferred out of the European Economic Area (EEA) and where the level of personal data protection is not the same as in the EEA, we provide appropriate safeguards in the form of standard contractual clauses and with adequate decisions.</p>
+              <p>In this way, we ensure that your personal data transferred to third parties outside of the EEA is processed with the same degree of care as in Belgium.</p>
+
+              <p>If you wish to receive more information on the third parties to whom we may communicate your personal information to according to the law or as part of a service we have entrusted to them, or on the appropriate or suitable safeguards we use in case of international data transfer referred to before, please contact gdpr.privacy&#64;osgeurope.com.</p>
+            </div>
+
+            <div id="security" class="policy-section py-4">
+              <h2>Keeping your data secure</h2>
+              <p>At OSG Europe Logistics sa we are committed to keeping your data secure. To that end, we have adopted appropriate technical and organizational measures to duly protect your personal data.</p>
+                <ul>
+                  <li>Maintenance of an information security policy.</li>
+                  <li>Definitions of functions and obligations of every member of our personnel with access to your
+                    personal data, as appropriately documented.</li>
+                  <li>Strict security procedures in the storage and disclosure of your personal data, and to protect it
+                    against accidental loss, destruction or damage.</li>
+                  <li>Back-up copying and data recovery procedures.</li>
+                  <li>Training of our personnel on company’s data protection and information security standards and policies.</li>
+                </ul>
+            </div>
+
+            <div id="cookies" class="policy-section py-4">
+              <h2>Policy Cookies</h2>
+              <p>OSG Europe Logistics sa uses cookies on its websites, for example to help it perform better, remember your preferences, and present you with information that we think is of interest or use to you.</p>
+              <p>In general terms, cookies are small data files sent by a web server that are stored on your computer. They can perform different functions but typically keep a record of websites visited. They contain a small amount of information regarding website visits that can be used to remember you and your preferences for later visits.</p>
+
+              <p>Cookies can be either ‘functional’ containing, for example, the choice of language or region chosen by the website visitor enabling you to not repeat entering the same data when visiting our website.</p>
+              <p>Those functionalities are for instance provided by session cookies that store information about user page activities allowing them to easily pick up where they left off on OSG Europe Logistics sa’s website.</p>
+
+              <p>We also process data recorded through non-functional cookies to draw up statistics or studies relevant to the OSG Europe Logistics sa website and to ensure that its content and performance is improved.</p>
+              <p>Most web browsers are automatically configured to accept cookies. However, you can configure your browser to inform you of each cookie sent, or to prevent them being saved on your hard drive. If you refuse cookies we cannot guarantee you full access to our website; you may experience it running at re- duced speed or be unable to access to all services.</p>
+
+              <p>For more information on the use of cookies by OSG Europe Logistics sa, please consult the www.osgeurope.com cookie notice.</p>
+              <p>For more general information on the use of cookies, please see www.allaboutcookies.org</p>
+
+              <h5>What we collect</h5>
+              <p>We may collect the following information:</p>
+              <ul>
+                <li>Name</li>
+                <li>Contact information including email address</li>
+                <li>Demographic information such as postcode, preferences and interests</li>
+                <li>Other information relevant to customer surveys and/or offers</li>
+              </ul>
+                <p>For the exhaustive list of cookies we collect see the List of cookies we collect section.</p>
+
+                <h5>What we do with the information we gather</h5>
+                <p>We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:</p>
+              <ul>
+                <li>Internal record keeping.</li>
+                <li>We may use the information to improve our products and services.</li>
+                <li>We may periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided.</li>
+                <li>From time to time, we may also use your information to contact you for market research purposes. We may contact you by email, phone, fax or mail. We may use the information to customise the website according to your interests.</li>
+              </ul>
+
+              <h5>Security</h5>
+              <p>We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>
+
+              <h5>How we use cookies</h5>
+              <p>A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual.
+                The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences.</p>
+
+              <p>We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page traffic and improve our website in order to tailor it to customer needs. We only use this information for statistical analysis purposes and then the data is removed from the system.</p>
+
+              <p>Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find useful and which you do not. A cookie in no way gives us access to your computer or any information about you, other than the data you choose to share with us. You can choose to accept or decline cookies.
+                Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website.</p>
+
+              <h5>Links to other websites</h5>
+              <p>Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement.
+                You should exercise caution and look at the privacy statement applicable to the website in question.</p>
+
+              <h5>Controlling your personal information</h5>
+              <p>You may choose to restrict the collection or use of your personal information in the following ways:</p>
+
+              <ul>
+                <li>Whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes</li>
+                <li>If you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by letting us know using our Contact Us information</li>
+              </ul>
+               <p>We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen.</p>
+
+               <p>You may request details of personal information which we hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please email us this request using our Contact Us information.</p>
+
+               <p>If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.</p>
+
+              <h5>List of cookies we collect</h5>
+              <p>The table below lists the cookies we collect and what information they store:</p>
+
+              <table class="tableCookies">
+                <tr>
+                  <th>COOKIE name</th>                    <td>COOKIE Description</td>
+                </tr>
+                <tr>
+                  <th>CART</th>	                              <td>The association with your shopping cart.</td>
+                </tr>
+                <tr>
+                  <th>CATEGORY_INFO</th>	                    <td>Stores the category info on the page, that allows to display pages more quickly.</td>
+                </tr>
+                <tr>
+                  <th>COMPARE</th>                       <td>The items that you have in the Compare Products list.</td>
+                </tr>
+                <tr>
+                  <th>CUSTOMER</th>                       <td>An encrypted version of your customer id with the store.</td>
+                </tr>
+                <tr>
+                <th>CUSTOMER_AUTH</th>	                    <td>An indicator if you are currently logged into the store.</td>
+                </tr>
+                <tr>
+                <th>CUSTOMER_INFO</th>	                    <td>An encrypted version of the customer group you belong to.</td>
+                </tr>
+                <tr>
+                  <th>CUSTOMER_SEGMENT_IDS</th>	             <td>Stores the Customer Segment ID</td>
+                </tr>
+                <tr>
+                  <th>EXTERNAL_NO_CACHE	A flag</th>         <td>which indicates whether caching is disabled or not.</td>
+                </tr>
+                <tr>
+                <th>FORM_KEY</th>	                        <td>Stores form key used by page cache functionality.</td>
+                </tr>
+                <tr>
+                  <th>FRONTEND</th>	                         <td>Your session ID on the server.</td>
+                </tr>
+                <tr>
+                <th>GUEST-VIEW</th>	                       <td>Allows guests to edit their orders</td>
+                </tr>
+                <tr>
+                  <th>LAST_CATEGORY</th>	                    <td>The last category you visited.</td>
+                </tr>
+                <tr>
+                  <th>LAST_PRODUCT</th>	                     <td>The most recent product you have viewed.</td>
+                </tr>
+                <tr>
+                  <th>NEWMESSAGE</th>	                      <td>Indicates whether a new message has been received.</td>
+                </tr>
+                <tr>
+                  <th>NO_CACHE</th>	                         <td>Indicates whether it is allowed to use cache.</td>
+                </tr>
+                <tr>
+                  <th>PERSISTENT_SHOPPING_CART</th>	         <td>A link to information about your cart and viewing history if you have asked the site.</td>
+                </tr>
+                <tr>
+                  <th>RECENTLYCOMPARED</th>	                <td>The items that you have recently compared.</td>
+                </tr>
+                <tr>
+                  <th>STF</th>	                             <td>Information on products you have emailed to friends.</td>
+                </tr>
+                <tr>
+                  <th>STORE</th>                             <td>The store view or language you have selected.</td>
+                </tr>
+                <tr>
+                  <th>USER_ALLOWED_SAVE_COOKIE</th>	         <td>Indicates whether a customer allowed to use cookies.</td>
+                </tr>
+                <tr>
+                  <th>VIEWED_PRODUCT_IDS</th>	               <td>The products that you have recently viewed.</td>
+                </tr>
+                <tr>
+                  <th>WISHLIST</th>	                         <td>An encrypted list of products added to your Wish List.</td>
+                </tr>
+                <tr>
+                  <th>WISHLIST_CNT</th>	                     <td>The number of items in your Wish List.</td>
+                </tr>
+              </table>
+
+            </div>
+
+            <div id="rights" class="policy-section py-4">
+              <h2>Your rights</h2>
+              <p>At OSG Europe Logistics sa, we aim to be transparent, not only about how we process personal data about you, but also about your rights that are linked to such processing. Therefore, we want to remind you of the existence of the following rights:</p>
+              <ul>
+                <li>Right to request access to the personal data we hold about you.</li>
+
+                <li>Right to rectification or erasure of such data.</li>
+
+                <li>Right to obtain restriction of processing or to object to such processing.</li>
+
+                <li>Right to data portability.</li>
+
+                <li>Right to withdraw your consent at any time, where the processing is based upon such consent.</li>
+
+              </ul>
+
+              <p>You can exercise these rights by contacting us at gdpr.privacy&#64;osgeurope.com.</p>
+              <p>In order to avoid unlawful access to your personal data, OSG Europe Logistics sa will request you to provide a proof of your identity.</p>
+
+              <p>If you have any queries about this privacy notice or experiencing any other privacy issue, we are committed to promptly dealing with any privacy-related complaints and as such have procedures that enable us to efficiently respond to any issue you may have.</p>
+
+              <p>If you have a complaint related to the processing of your personal data by OSG Europe Logistics sa including a data breach, please contact us via: </p>
+
+              <p>Letter to the address: OSG Europe Logistics</p>
+
+              <div class="informContact">
+                <p>Avenue Lavoisier 1,
+                  1300 Wavre Nord
+                  Belgium</p>
+              <p>Phone: +32 10230511</p>
+              <p>E-mail: gdpr.privacy&#64;osgeurope.com</p>
+              </div>
+
+              <p>If you are not satisfied with the way your complaint relating to personal data protection has been dealt with, you can also report your complaint to commission&#64;privacycommission.be</p>
+
+            </div>
+
+            <div id="contact" class="policy-section py-3">
+              <h2>Contact Us</h2>
+              <p>If you have questions about this Privacy Policy, please contact us at:</p>
+              <div class="contact_information bg-light mt-3">
+                <div class="">
+                  <p class="mb-1">Address: Avenue Lavoisier 1,
+                    1300 Wavre
+                    Belgium</p>
+                  <p class="mb-1">Email: gdpr.privacy&#64;osgeurope.com</p>
+                  <p class="mb-0">Phone:  +32 10230511</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <p-scrolltop [threshold]="100" icon="pi pi-arrow-up" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }"></p-scrolltop>
+    </div>
+
+
+
+
+<app-footer></app-footer>

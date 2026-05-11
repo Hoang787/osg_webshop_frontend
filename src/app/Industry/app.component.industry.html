@@ -1,0 +1,125 @@
+
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="industry">
+
+    <div class="col-lg-12 col-xs-6 industry_description">
+
+      <h5>Cutting tool solutions that meet the changing needs of the automotive industry</h5>
+      <p> The automotive industry has evolved rapidly in recent years due to the development of new materials and technologies,
+        resulting in the need for sophisticated cutting tools that meet these new requirements.
+        OSG is constantly evolving and responding to changing needs with new innovations.
+        SG not only supplies high-performance cutting tools for the automotive industry but also offers customized application solutions for better processing with greater efficiency and longer durability.
+      </p>
+
+    </div>
+
+    <div class="col-lg-12 col-xs-6">
+      <img src="assets/img/automotive.jpg" alt="" class="industry_img"/>
+    </div>
+
+  </div>
+
+  <div class="module">
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h2 class="module-title font-alt">Our features</h2>
+        <div class="module-subtitle">A wonderful serenity has taken possession of my entire soul, like these sweet
+          mornings of spring which I enjoy with my whole heart.
+        </div>
+
+          <div class="engine-filters">
+            <a (click)="productsEngine($event)">Automotive</a>
+            <a (click)="productsEngine($event)">Cylinder Head</a>
+            <a (click)="productsEngine($event)">Crankshaft</a>
+            <a (click)="productsEngine($event)">Cast Iron</a>
+            <a (click)="productsEngine($event)">Alloy Steel</a>
+            <a (click)="productsEngine($event)">Aluminum</a>
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="">
+
+      <div class="col-lg-12 col-md-6">
+        <div class="engine_img_container">
+          <img [src]="imgSelectTive" alt="Feature Image" class="engine_img">
+        </div>
+      </div>
+
+
+        <div class="field_items">
+
+          <div class="field_item">
+            <div>
+              <a href=""><h5>Taraud VP-DC</h5></a>
+            </div>
+            <div>
+              <img src="assets/img/5600.jpg" alt=""/>
+            </div>
+            <div class="details_item">
+              <p>
+                VP-DC-MT : Design premium pour la fonte et l'aluminium ou la fonte d’aluminium.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="field_item">
+            <div>
+            <a href=""><h5>Taraud VP-DC</h5></a>
+            </div>
+            <div>
+              <img src="assets/img/11053.jpg" alt=""/>
+            </div>
+            <div class="details_item">
+              <p>
+                PHP: Foret U OSG PHOENIX de haute performance 3xD.
+              </p>
+            </div>
+          </div>
+
+          <div class="field_item">
+            <div>
+            <a href=""><h5>Taraud VP-DC</h5></a>
+            </div>
+            <div>
+              <img src="assets/img/78001.jpg" alt=""/>
+            </div>
+            <div class="details_item">
+              <p>
+                TRS-HO-3D 5D 10D : Ce foret carbure VHM avec 3 angles de coupe et refroidissement interne est
+                révolutionnaire pour l’usinage de l'acier.
+              </p>
+            </div>
+          </div>
+
+          <div class="field_item">
+            <div>
+            <a href=""><h5>Taraud VP-DC</h5></a>
+            </div>
+            <div>
+              <img src="assets/img/VG441.jpg" alt=""/>
+            </div>
+            <div class="details_item">
+              <p>
+                WXL: Fraises avec géométrie variable.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+
+  </div>
+  <p-scrolltop [threshold]="100" icon="pi pi-arrow-up" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }"></p-scrolltop>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,133 @@
+
+
+.imgProducts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #E4E7ED;
+  margin-top: 1rem;
+}
+
+.productsList {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+
+.category {
+  position: relative;
+  overflow: hidden;
+}
+
+.taps_category:hover .category-img> img {
+  content: url("/assets/img/taps_pro.jpg");
+}
+
+.drills_category:hover .category-img> img {
+  content: url("/assets/img/drills_pro.jpg");
+}
+
+.mills_category:hover .category-img> img {
+  content: url("/assets/img/mills_pro.jpg");
+}
+
+.indexables_category:hover .category-img> img {
+  content: url("/assets/img/indexables_pro.jpg");
+}
+
+.reamers_category:hover .category-img> img {
+  content: url("/assets/img/reamers_pro.jpg");
+}
+
+.gauges_category:hover .category-img> img {
+  content: url("/assets/img/gauges_pro.jpg");
+}
+
+
+.category:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  width: 60%;
+  background: #00559d;
+  opacity: 0.9;
+  -webkit-transform: skewX(-45deg);
+  -ms-transform: skewX(-45deg);
+  transform: skewX(-45deg);
+}
+
+.category:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: 100%;
+  background: #00559d;
+  opacity: 0.9;
+  -webkit-transform: skewX(-45deg) translateX(-100%);
+  -ms-transform: skewX(-45deg) translateX(-100%);
+  transform: skewX(-45deg) translateX(-100%);
+}
+
+.category .category-img {
+  position: relative;
+  background-color: #E4E7ED;
+  z-index: -1;
+}
+
+.category .category-img> img {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  min-height: 9rem;
+}
+
+/*.category:hover .category-img> img {*/
+/*  -webkit-transform: scale(1.1);*/
+/*  -ms-transform: scale(1.1);*/
+/*  transform: scale(1.1);*/
+/*}*/
+
+.category .category-body {
+  position: absolute;
+  top: 0;
+  width: 75%;
+  padding: 12px;
+  z-index: 10;
+}
+
+.category .category-body h5 {
+  font-size: 1rem;
+  color: #FFF;
+}
+
+.category .category-body .cta-btn {
+  color: #FFF;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+  .productsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .imgProducts img {
+    width: 100%;
+    height: auto;
+  }
+
+  .category .category-img> img {
+    min-height: auto;
+  }
+}
+
+

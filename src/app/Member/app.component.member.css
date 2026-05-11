@@ -1,0 +1,87 @@
+
+.catalog_menu {
+  display: flex;
+  justify-content: center;
+  height: min-content;
+  margin-top: 5rem;
+}
+
+
+.menu_header {
+  text-decoration: none;
+  cursor: pointer;
+  color: skyblue;
+}
+
+.menu_header:hover {
+  text-decoration: underline;
+}
+
+
+:host(::ng-deep) .p-menu-start {
+  background-color: #e5eaf0;
+}
+
+
+
+
+.section-title {
+  text-align: center;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 160px;
+  height: 1px;
+  background: color-mix(in srgb, #010608, transparent 60%);
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  margin: auto;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #04415f;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.member_content {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.member_img {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .catalog_menu {
+    margin-top: 2rem;
+  }
+}

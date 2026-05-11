@@ -1,0 +1,147 @@
+
+
+<app-header></app-header>
+
+
+<div class="container">
+
+
+<!-- Page Title -->
+<div class="page-title">
+  <div class="d-lg-flex justify-content-between align-items-center">
+    <h1 class="mb-2 mb-lg-0">News</h1>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li class="current">News</li>
+      </ol>
+    </nav>
+  </div>
+</div><!-- End Page Title -->
+
+
+<section id="events" class="events section">
+
+  <div class="container eventsFeature">
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="events-list">
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">15</span>
+              <span class="month">JUN</span>
+            </div>
+            <div class="event-content">
+              <h3>Annual Science Fair Exhibition</h3>
+              <div class="event-meta">
+                <p><i class="bi bi-clock"></i> 09:00 AM - 04:00 PM</p>
+                <p><i class="bi bi-geo-alt"></i> Main Campus Auditorium</p>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin gravida dolor sit amet lacus accumsan.</p>
+              <a href="/newproduct" class="btn-event">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">22</span>
+              <span class="month">JUN</span>
+            </div>
+            <div class="event-content">
+              <h3>Parent-Teacher Conference</h3>
+              <div class="event-meta">
+                <p><i class="bi bi-clock"></i> 01:00 PM - 06:00 PM</p>
+                <p><i class="bi bi-geo-alt"></i> Multiple Classrooms</p>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Proin sagittis nisl rhoncus mattis rhoncus.</p>
+              <a href="#" class="btn-event">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">30</span>
+              <span class="month">JUN</span>
+            </div>
+            <div class="event-content">
+              <h3>Summer Sports Tournament Final</h3>
+              <div class="event-meta">
+                <p><i class="bi bi-clock"></i> 02:30 PM - 05:30 PM</p>
+                <p><i class="bi bi-geo-alt"></i> Sports Complex</p>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+              <a href="#" class="btn-event">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">05</span>
+              <span class="month">JUL</span>
+            </div>
+            <div class="event-content">
+              <h3>Graduation Ceremony Class of 2023</h3>
+              <div class="event-meta">
+                <p><i class="bi bi-clock"></i> 10:00 AM - 01:00 PM</p>
+                <p><i class="bi bi-geo-alt"></i> Central Auditorium</p>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis.</p>
+              <a href="#" class="btn-event">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination-wrapper">
+          <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="totalRecords" />
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="sidebar">
+
+
+          <div class="sidebar-item">
+            <h3 class="sidebar-title">Categories</h3>
+            <div class="categories">
+              <ul>
+                <li><a href="#">Events <span>(12)</span></a></li>
+                <li><a href="#">Products <span>(8)</span></a></li>
+              </ul>
+            </div>
+          </div>
+
+
+              <div class="sidebar-item">
+                <h3 class="sidebar-title">Upcoming Events</h3>
+                <p-calendar
+                  [(ngModel)]="dates"
+                  selectionMode="multiple"
+                  [inline]="true"
+                  [readonlyInput]="true" />
+              </div>
+
+
+          <div class="sidebar-item featured-event">
+            <h3 class="sidebar-title">Featured Event</h3>
+            <div class="featured-event-content">
+              <img src="assets/img/news-1.jpg" alt="Featured Event" class="img-fluid">
+              <h4>Green Tap Technology</h4>
+              <p><i class="bi bi-calendar-event"></i> July 15-17, 2023</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus consectetur adipiscing elit.</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+
+<app-footer></app-footer>
