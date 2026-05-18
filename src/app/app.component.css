@@ -77,8 +77,8 @@
 }
 
 .blogs {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
@@ -378,10 +378,12 @@
 }
 
 .latest-blogs {
-  margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
+.blogDetails a {
+  text-decoration: none;
+}
 
 .background-video {
   width: 100%;
@@ -433,8 +435,16 @@
 
 .productCategory {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
+}
+
+.product-details .icon h3 {
+  padding-left: 1rem;
+}
+
+.brandDetails a {
+  text-decoration: none;
 }
 
 

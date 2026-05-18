@@ -92,7 +92,7 @@
 
   <div class="productCategory mt-5">
 
-      <div class="product-card p-4 d-flex flex-column justify-content-between" *ngFor="let categ of categories"
+      <div class="product-card p-1 d-flex flex-column justify-content-between" *ngFor="let categ of categories"
            [ngClass]="{'taps_category': categ.category == 'Taps' , 'drills_category': categ.category == 'Drills',
               'mills_category': categ.category == 'EndMills', 'reamers_category': categ.category == 'Reamers', 'indexables_category': categ.category == 'Indexables',
               'gauges_category': categ.category == 'Gauges'}" >
@@ -100,8 +100,9 @@
         <div class="product-details">
           <span class="icon">
             <img src="{{categ.imageCategory}}"/>
+            <h3 class="fs-5">{{categ.category}}</h3>
           </span>
-          <h3 class="fs-5">{{categ.category}}</h3>
+
         </div>
         </a>
       </div>
@@ -112,67 +113,47 @@
 
 
 
-  <section id="team" class="team mt-5">
+  <section class="section-brands mt-5">
 
     <div class="">
-      <h3>HighLights</h3>
+      <h3>Other Brands</h3>
     </div>
 
-      <div class="row mt-5">
+    <div class="col-lg-12 col-md-12 col-xs-6 brands">
 
-        <div class="col-lg-3 col-md-3">
-          <div class="team-member">
-            <div class="member-img">
-              <img src="assets/img/catalog1.jpg" class="img-fluid" alt="">
+      <div class="brand">
+        <div class="brand-item">
+          <div class="brandImg">
+            <img src="assets/img/wexo.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="brandDetails">
+            <a href="https://www.wexo.com/en/" target="_blank" class="stretched-link">
+              <h3>WEXO</h3>
 
-            </div>
-            <div class="member-info">
-              <h4>Threading & Drilling Tools</h4>
-            </div>
+            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure
+              perferendis.</p>
+          </a>
           </div>
         </div>
+      </div><!-- End Service Item -->
 
-        <div class="col-lg-3 col-md-3">
-          <div class="team-member">
-            <div class="member-img">
-              <img src="assets/img/catalog2.jpg" class="img-fluid" alt="">
-
-            </div>
-            <div class="member-info">
-              <h4>Milling Tools</h4>
-            </div>
+      <div class="brand">
+        <div class="brand-item">
+          <div class="brandImg">
+            <img src="assets/img/somta.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="brandDetails">
+            <a href="https://www.somta.co.za/" target="_blank" class="stretched-link">
+              <h3>SOMTA</h3>
+            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut
+              nesciunt dolorem.</p>
+            </a>
           </div>
         </div>
+      </div><!-- End Service Item -->
 
-        <div class="col-lg-3 col-md-3">
-          <div class="team-member">
-            <div class="member-img">
-              <img src="assets/img/catalog1.jpg" class="img-fluid" alt="">
-
-            </div>
-            <div class="member-info">
-              <h4>Threading & Drilling Tools</h4>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-3">
-          <div class="team-member">
-            <div class="member-img">
-              <img src="assets/img/catalog2.jpg" class="img-fluid" alt="">
-
-            </div>
-            <div class="member-info">
-              <h4>Milling Tools</h4>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
+    </div>
   </section>
-
 
 <!--News-->
 <div class="container">
@@ -233,7 +214,7 @@
 
 
   <section>
-    <div class="shaping-your-dreams mt-4">
+    <div class="shaping-your-dreams mt-5">
 
       <div class="">
         <h3>OSG Shaping</h3>
@@ -283,46 +264,7 @@
   </section>
 
 
-  <section class="section-brands">
 
-    <div class="">
-      <h3>Other Brands</h3>
-    </div>
-
-    <div class="col-lg-12 col-md-12 col-xs-6 brands">
-
-      <div class="brand">
-        <div class="brand-item">
-          <div class="brandImg">
-            <img src="assets/img/wexo.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="brandDetails">
-            <a href="" class="stretched-link">
-              <h3>Nesciunt Mete</h3>
-            </a>
-            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure
-              perferendis.</p>
-          </div>
-        </div>
-      </div><!-- End Service Item -->
-
-      <div class="brand">
-        <div class="brand-item">
-          <div class="brandImg">
-            <img src="assets/img/somta.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="brandDetails">
-            <a href="" class="stretched-link">
-              <h3>Eosle Commodi</h3>
-            </a>
-            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut
-              nesciunt dolorem.</p>
-          </div>
-        </div>
-      </div><!-- End Service Item -->
-
-    </div>
-  </section>
 
 
   <section class="latest-blogs">
@@ -336,13 +278,13 @@
       <div class="blog" *ngFor="let video of youtubeVideos">
         <div class="blog-item">
           <div class="blogVideo">
-            <ngx-lite-youtube [videoId]="mainVideo?.videoId"></ngx-lite-youtube>
+            <ngx-lite-youtube [videoId]="video?.videoId"></ngx-lite-youtube>
           </div>
           <div class="blogDetails">
             <a href="" class="stretched-link">
-              <h3> {{mainVideo?.title}} </h3>
+              <h4> {{video?.title}} </h4>
             </a>
-            <span>{{mainVideo?.description}}</span>
+
           </div>
         </div>
       </div>
