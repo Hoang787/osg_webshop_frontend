@@ -30,9 +30,10 @@ export class MapSiteComponent implements OnInit {
   searchResults: any[] = [];
   markersOSG: any[] = [
     { longitude: 4.597779, latitude: 50.735802, name: "OSG Europe Logistics S.A."},
+    { longitude: 4.597779, latitude: 50.735802, name: "OSG Belux s.a.n.v."},
     { longitude: 3.261720, latitude: 50.851521, name: "OSG David Grinding Services"},
-    { longitude: 2.544803, latitude: 49.008953, name: "OSG France"},
-    { longitude: 4.254213, latitude: 45.518348, name: "OSG NEXAM"},
+    { longitude: 2.544803, latitude: 49.008953, name: "OSG France S.A.S"},
+    { longitude: 4.254213, latitude: 45.518348, name: "NEXAM S.A.S"},
     { longitude: 9.6883299, latitude: 48.7143578, name: "OSG GmbH"},
     { longitude: 8.6162189, latitude: 50.2181582, name: "WEXO GmbH"},
     { longitude: 9.9338036, latitude: 49.4024331, name: "BASS GmbH"},

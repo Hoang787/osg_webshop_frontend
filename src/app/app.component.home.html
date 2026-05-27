@@ -45,75 +45,118 @@
 </div>
 
 
-<section id="clients" class="clients section">
 
-    <div class="row gy-4">
+<div class="products-section col-lg-12 col-md-12 col-xs-6">
 
-      <div class="col-xl-2 col-md-3 col-6 client-logo">
-        <img src="assets/img/client-1.png" class="img-fluid" alt="">
-      </div>
+    <div class="productCategory">
 
-      <div class="col-xl-2 col-md-3 col-6 client-logo">
-        <img src="assets/img/client-2.png" class="img-fluid" alt="">
-      </div>
-
-      <div class="col-xl-2 col-md-3 col-6 client-logo">
-        <img src="assets/img/client-3.png" class="img-fluid" alt="">
-      </div>
-
-      <div class="col-xl-2 col-md-3 col-6 client-logo">
-        <img src="assets/img/client-4.png" class="img-fluid" alt="">
-      </div>
-
-      <div class="col-xl-2 col-md-3 col-6 client-logo">
-        <img src="assets/img/client-5.png" class="img-fluid" alt="">
-      </div>
-
-      <div class="col-xl-2 col-md-3 col-6 client-logo">
-        <img src="assets/img/client-6.png" class="img-fluid" alt="">
-      </div>
+        <div class="product-card zoom-in" *ngFor="let categ of categories">
+          <a routerLink="/product/{{categ.category}}">
+          <div class="product-details">
+            <div class="icon d-flex justify-content-center align-items-center">
+            <img src="{{categ.image}}"/>
+            </div>
+            <div class=" d-flex justify-content-center align-items-center">
+            <h5 class="">{{categ.category}}</h5>
+            </div>
+          </div>
+          </a>
+        </div>
 
     </div>
-
-</section>
-
-
+</div>
 
 
 <div class="container">
 
 
-<!--Products-->
-<section id="products" class="products">
+<!--
+  <section id="products" class="products">
 
-  <div class="section-title">
-    <h3>Product Categories</h3>
-  </div>
+    <div class="productSection mt-5">
+
+      <div class="product-wrapper p-1 d-flex flex-column justify-content-between" *ngFor="let categ of categories"
+           [ngClass]="{'taps_category': categ.category == 'Taps' , 'drills_category': categ.category == 'Drills',
+              'mills_category': categ.category == 'EndMills', 'reamers_category': categ.category == 'Reamers', 'indexables_category': categ.category == 'Indexables',
+              'gauges_category': categ.category == 'Gauges'}" >
+        <a routerLink="/product/{{categ.category}}">
+          <div class="product-details">
+          <span class="icon">
+            <img src="{{categ.image}}"/>
+            <h3 class="fs-5">{{categ.category}}</h3>
+          </span>
+
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+-->
+
+<!--
+
+<section id="products" class="products">
 
   <div class="productCategory mt-5">
 
-      <div class="product-card p-1 d-flex flex-column justify-content-between" *ngFor="let categ of categories"
+      <div class="product-card product-box p-1 d-flex flex-column justify-content-between" *ngFor="let categ of categories"
            [ngClass]="{'taps_category': categ.category == 'Taps' , 'drills_category': categ.category == 'Drills',
               'mills_category': categ.category == 'EndMills', 'reamers_category': categ.category == 'Reamers', 'indexables_category': categ.category == 'Indexables',
               'gauges_category': categ.category == 'Gauges'}" >
         <a routerLink="/product/{{categ.category}}">
         <div class="product-details">
           <span class="icon">
-            <img src="{{categ.imageCategory}}"/>
-            <h3 class="fs-5">{{categ.category}}</h3>
-          </span>
+            <img src="{{categ.image}}"/>
 
+          </span>
+          <h3 class="fs-5">{{categ.category}}</h3>
         </div>
         </a>
       </div>
 
   </div>
 </section>
-<!--Fin Products-->
+
+-->
+
+  <section class="section-brands">
+
+    <div class="">
+      <h3>Other Brands</h3>
+    </div>
+
+  <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="brands">
+
+    <ngu-tile  *nguCarouselDef="let item;">
+      <div class="brand">
+        <div class="brand-item">
+          <div class="brandImg">
+            <img src="{{item.image}}" class="" alt="">
+          </div>
+          <div class="brandDetails">
+            <a href="https://www.wexo.com/en/" target="_blank" class="stretched-link">
+              <h3>{{item.name}}</h3>
+            </a>
+            <p>Provident nihil minus qui consequtatur non omnis maiores. Eos accusantium minus dolores iure
+                perferendis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </ngu-tile>
+    <ul class="myPoint" NguCarouselPoint>
+      <li *ngFor="let i of myCarousel.pointNumbers(); let j = index" [class.active]="i == myCarousel.activePoint()" (click)="myCarousel.moveTo(j)">
+      </li>
+    </ul>
+
+  </ngu-carousel>
+
+  </section>
 
 
-
-  <section class="section-brands mt-5">
+  <!--
+  <section class="section-brands">
 
     <div class="">
       <h3>Other Brands</h3>
@@ -121,96 +164,112 @@
 
     <div class="col-lg-12 col-md-12 col-xs-6 brands">
 
+      <p-carousel [value]="brands" [numVisible]="3" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+        <ng-template let-brand #item>
+
       <div class="brand">
         <div class="brand-item">
           <div class="brandImg">
-            <img src="assets/img/wexo.jpg" class="img-fluid" alt="">
+            <img src="{{brand.image}}" class="img-fluid" alt="">
           </div>
           <div class="brandDetails">
             <a href="https://www.wexo.com/en/" target="_blank" class="stretched-link">
-              <h3>WEXO</h3>
+              <h3>{{brand.name}}</h3>
 
-            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure
+            <p>Provident nihil minus qui consequtatur non omnis maiores. Eos accusantium minus dolores iure
               perferendis.</p>
           </a>
           </div>
         </div>
-      </div><!-- End Service Item -->
+      </div>
 
-      <div class="brand">
-        <div class="brand-item">
-          <div class="brandImg">
-            <img src="assets/img/somta.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="brandDetails">
-            <a href="https://www.somta.co.za/" target="_blank" class="stretched-link">
-              <h3>SOMTA</h3>
-            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut
-              nesciunt dolorem.</p>
-            </a>
-          </div>
-        </div>
-      </div><!-- End Service Item -->
+        </ng-template>
+      </p-carousel>
 
     </div>
+
   </section>
+-->
 
 <!--News-->
-<div class="container">
+<section class="container section-bestProducts">
 
   <div class="mt-5">
     <h3 class="">Bestsellers</h3>
   </div>
   <div>
-    <p-carousel [value]="products" [numVisible]="5" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
-      <ng-template let-product #item>
 
-        <div class="latest-news-item">
-          <div class="rounded">
-            <div class="rounded-top overflow-hidden">
-              <img src="assets/img/tap170.jpg" [alt]="product.name"  class="img-zoomin img-fluid rounded-top w-100">
-            </div>
-            <div class="d-flex flex-column p-4 banner-info">
-              <a href="#" class="h6">{{ product.title }}</a>
-              <div class="d-flex justify-content-between">
+      <ngu-carousel #bestProducts [inputs]="carouselConfigProducts" [dataSource]="products">
+
+         <ngu-tile *nguCarouselDef="let product;">
+
+           <div class="latest-news-item">
+             <div class="rounded">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/img/tap170.jpg" [alt]="product.name"  class="img-fluid rounded-top">
+                </div>
+             <div class="d-flex flex-column p-4 banner-info">
+              <a href="#" class="d-flex justify-content-center align-items-center text-align-center overflow-wrap-normal">{{ product.title }}</a>
+              <div class="d-flex">
                 <a href="#" class="small text-body link-hover">{{ product.description }}</a>
               </div>
             </div>
           </div>
         </div>
 
-      </ng-template>
-    </p-carousel>
+         </ngu-tile>
+
+        <button NguCarouselPrev class="leftRs" >&lt;</button>
+        <button NguCarouselNext class="rightRs" >&gt;</button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of bestProducts.pointNumbers(); let j = index" [class.active]="i == bestProducts.activePoint()" (click)="bestProducts.moveTo(j)">
+          </li>
+        </ul>
+
+      </ngu-carousel>
+
   </div>
-
-
 
 
   <div class="mt-5">
     <h3 class="">New Products</h3>
   </div>
   <div>
-    <p-carousel [value]="products" [numVisible]="5" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
-      <ng-template let-product #item>
+
+    <ngu-carousel #newProducts [inputs]="carouselConfigProducts" [dataSource]="products"
+    >
+      <ngu-tile *nguCarouselDef="let product;">
 
         <div class="latest-news-item">
           <div class="rounded">
-            <div class="rounded-top overflow-hidden">
-              <img src="assets/img/tap170.jpg" [alt]="product.name"  class="img-zoomin img-fluid rounded-top w-100">
+            <div class="d-flex justify-content-center align-items-center">
+              <img src="assets/img/tap170.jpg" [alt]="product.name"  class="img-fluid rounded-top">
             </div>
             <div class="d-flex flex-column p-4 banner-info">
-              <a href="#" class="h6">{{ product.title }}</a>
-              <div class="d-flex justify-content-between">
+              <a href="#" class="d-flex justify-content-center align-items-center text-align-center overflow-wrap-normal">{{ product.title }}</a>
+              <div class="d-flex">
                 <a href="#" class="small text-body link-hover">{{ product.description }}</a>
               </div>
             </div>
           </div>
         </div>
 
-      </ng-template>
-    </p-carousel>
+      </ngu-tile>
+
+      <button NguCarouselPrev class="leftRs" >&lt;</button>
+      <button NguCarouselNext class="rightRs" >&gt;</button>
+
+      <ul class="myPoint" NguCarouselPoint>
+        <li *ngFor="let i of newProducts.pointNumbers(); let j = index" [class.active]="i == newProducts.activePoint()" (click)="newProducts.moveTo(j)">
+        </li>
+      </ul>
+
+    </ngu-carousel>
+
   </div>
 
+  </section>
 
 
   <section>
@@ -292,7 +351,6 @@
     </div>
   </section>
 
-</div>
 
 <div #menuDown id="menuDown">
   <ul class="floating">
@@ -312,6 +370,38 @@
 </div>
 
 </div>
+
+<section id="clients" class="clients">
+
+  <div class="row gy-4">
+
+    <div class="col-xl-2 col-md-3 col-6 client-logo">
+      <img src="assets/img/client-1.png" class="img-fluid" alt="">
+    </div>
+
+    <div class="col-xl-2 col-md-3 col-6 client-logo">
+      <img src="assets/img/client-2.png" class="img-fluid" alt="">
+    </div>
+
+    <div class="col-xl-2 col-md-3 col-6 client-logo">
+      <img src="assets/img/client-3.png" class="img-fluid" alt="">
+    </div>
+
+    <div class="col-xl-2 col-md-3 col-6 client-logo">
+      <img src="assets/img/client-4.png" class="img-fluid" alt="">
+    </div>
+
+    <div class="col-xl-2 col-md-3 col-6 client-logo">
+      <img src="assets/img/client-5.png" class="img-fluid" alt="">
+    </div>
+
+    <div class="col-xl-2 col-md-3 col-6 client-logo">
+      <img src="assets/img/client-6.png" class="img-fluid" alt="">
+    </div>
+
+  </div>
+
+</section>
 
 <app-footer></app-footer>
 

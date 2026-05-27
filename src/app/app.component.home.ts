@@ -1,9 +1,11 @@
 import {
+  AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostListener,
-  OnInit,
-  ViewChild
+  OnInit, signal,
+  ViewChild, WritableSignal
 } from '@angular/core';
 
 import { MatSelectModule} from '@angular/material/select';
@@ -11,7 +13,6 @@ import { MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule} from 'primeng/menu';
 import {CommonModule} from '@angular/common';
-import {CarouselModule} from 'primeng/carousel';
 import {MatButtonModule} from '@angular/material/button';
 
 import {AnimationBuilder} from '@angular/animations';
@@ -23,17 +24,24 @@ import {CategoryService} from './Services/CategoryService';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {NgxLiteYoutubeModule} from 'ngx-lite-video';
 import {DataService} from './Services/DataService';
+import {CarouselModule} from 'primeng/carousel';
+import {
+  NguCarousel,
+  NguCarouselConfig,
+  NguCarouselDefDirective, NguCarouselNextDirective, NguCarouselPrevDirective,
+  NguTileComponent
+} from '@ngu/carousel';
 
 
 
 @Component({
-  imports: [MatSelectModule, MatMenuModule, MenubarModule, MenuModule, CommonModule, CarouselModule, HeaderComponent, MatButtonModule, FooterComponent, RouterLink, NgxLiteYoutubeModule],
+  imports: [MatSelectModule, MatMenuModule, MenubarModule, MenuModule, CommonModule, CarouselModule, HeaderComponent, MatButtonModule, FooterComponent, RouterLink, NgxLiteYoutubeModule, CarouselModule, NguCarousel, NguTileComponent, NguCarouselDefDirective, NguCarouselNextDirective, NguCarouselPrevDirective],
   selector: 'app-home',
   standalone: true,
   styleUrl: './app.component.css',
   templateUrl: './app.component.home.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   visible: boolean = false;
   responsiveOptions: any[] | undefined;
@@ -83,9 +91,44 @@ export class HomeComponent implements OnInit {
 
   youtubeVideos: any[] = [];
   mainVideo: any;
+  brands: any[] = [];
+
+  @ViewChild('myCarousel') myCarousel!: NguCarousel<any>;
+  carouselConfig: NguCarouselConfig = {
+    grid: { xs: 1, sm: 2, md: 3, lg: 3, all: 0 },
+    slide: 1,
+    speed: 400,
+    interval: {
+      timing: 3000,
+      initialDelay: 1000
+    },
+    point: {
+      visible: true
+    },
+    load: 3,
+    loop: true,
+    touch: true
+  };
+
+  @ViewChild('newProducts') newProducts!: NguCarousel<any>;
+  carouselConfigProducts: NguCarouselConfig = {
+    grid: { xs: 1, sm: 3, md: 5, lg: 5, all: 0 },
+    slide: 1,
+    speed: 400,
+    interval: {
+      timing: 3000,
+      initialDelay: 1000
+    },
+    point: {
+      visible: true
+    },
+    load: 5,
+    touch: true
+  };
+  withAnim = true;
 
 
-  constructor(private el: ElementRef , private builder : AnimationBuilder, private router: Router, private dataService:  DataService, private categoryService: CategoryService, private _sanitizer: DomSanitizer) {
+  constructor(private el: ElementRef , private builder : AnimationBuilder, private router: Router, private dataService:  DataService, private categoryService: CategoryService, private _sanitizer: DomSanitizer, private cdr: ChangeDetectorRef) {
 
   }
 
@@ -141,12 +184,15 @@ export class HomeComponent implements OnInit {
     ];
 
     this.getAllCategories();
-
+    this.getAllBrands();
     this.getDataYoutube();
 
     this.youtubeVideos = [];
   };
 
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
 
   acceptCookies() {
     this.consentCookies = true;
@@ -184,6 +230,14 @@ export class HomeComponent implements OnInit {
   }
 
 
+  getAllBrands(): void {
+    this.dataService.getAllBrands().subscribe(data => {
+      this.brands = data;
+      console.log(this.brands);
+    })
+  }
+
+
   @HostListener('document:scroll', ['$event'])
   pageScroll(e: any) {
     if (window.scrollY > 500) {
@@ -195,6 +249,10 @@ export class HomeComponent implements OnInit {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  moveTo(slide: any) {
+    this.myCarousel.moveTo(slide, !this.withAnim);
   }
 
 }

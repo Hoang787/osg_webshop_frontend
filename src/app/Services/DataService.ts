@@ -60,4 +60,13 @@ export class DataService {
     return this.http.get(this.apiUrl + "/videos", {headers: httpHeaders});
   }
 
+
+  getAllBrands(): Observable<any> {
+
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.set("Content-Type", "application/json");
+
+    return this.http.get(this.apiUrl + "/videos/brands", {headers: httpHeaders});
+  }
+
 }

@@ -361,7 +361,9 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-
+.event-gallery {
+  margin-bottom: 3rem;
+}
 
 .event .event-content .event-highlights {
   list-style: none;

@@ -10,7 +10,7 @@
         <div class="mastHeadOSG col-lg-6 col-xs-6">
 
           <div class="logoOSG col-lg-3 col-xs-2">
-            <img (click)="homePage()" src="./assets/img/logo-transp.png" alt="" class="imglogo"/>
+            <img (click)="homePage()" src="./assets/img/logo-OSG.png" alt="" class="imglogo"/>
           </div>
 
           <div class="search-container col-lg-9 col-xs-4">
@@ -55,7 +55,7 @@
                       <div>
 
                         <div class="font-small text-sm text-surface-500 dark:text-surface-400">
-                          <img src="assets/img/logo-OSG.jpg" style="width: 32px" />
+                          <img src="assets/img/logo-OSG.png" style="width: 32px" />
                           Product EDP, Name...
                         </div>
 
@@ -156,9 +156,10 @@
 
   <span class="menuMobile">
      <button (click)="menuMobile.toggle($event)"><img src="assets/img/menu.png" alt=""></button>
+     <p-button icon="pi pi-language" styleClass="ml-2" (click)="menuLang.toggle($event)"/>
+     <p-menu #menuLang [model]="menuLanguages" [popup]="true" styleClass=".left-aligned-menu" />
     <span class="secondaryMenu">
-      <p-button icon="pi pi-language" styleClass="ml-2" (click)="menuLang.toggle($event)"/>
-      <p-menu #menuLang [model]="menuLanguages" [popup]="true" styleClass=".left-aligned-menu" />
+
       <p-button icon="pi pi-shopping-cart" styleClass="ml-2"/>
     </span>
   </span>

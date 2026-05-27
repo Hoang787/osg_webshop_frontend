@@ -316,7 +316,6 @@ export class ProductDetailsComponent implements OnInit {
 
     this.productService.getProductBySearchSku(this.productId).subscribe(data => {
        this.product = data;
-
        console.log(this.product);
     });
   }
@@ -360,7 +359,6 @@ export class ProductDetailsComponent implements OnInit {
 
   viewFile(fileInfo: any) {
 
-
     let filePath = "assets/" + fileInfo.path;
     this.sourceFile = new ProductFiles(fileInfo.type, fileInfo.name, filePath);
 
@@ -387,7 +385,6 @@ export class ProductDetailsComponent implements OnInit {
       this.productsToSelectForCompare = [];
 
       for(let prod of this.productsVisited) {
-
         this.productsToSelectForCompare.push(prod);
       }
 
@@ -453,7 +450,6 @@ export class ProductDetailsComponent implements OnInit {
 
 
   checkProductVisited(sku: any) {
-
 
     console.log("Visited product again");
      this.router.navigate(['product', this.category, sku]).then(() => {
